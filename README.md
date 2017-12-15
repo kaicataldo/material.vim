@@ -52,6 +52,10 @@ To turn on italics, configure as follows:
 let g:material_terminal_italics = 1
 ```
 
+### iTerm2 Color Scheme
+
+An iTerm2 color scheme is included in this repo. You can find it [here](https://github.com/kaicataldo/material.vim/tree/master/iterm2/material.itermcolors).
+
 [materialLink]: https://github.com/equinusocio/material-theme
 [palenightLink]: https://github.com/drewtempelmeyer/palenight.vim
 [vimplug]: https://github.com/junegunn/vim-plug

@@ -1,6 +1,6 @@
 # material.vim
 
-A dark color scheme for Vim/Neovim based on the [Material][materialLink] color scheme. This is a fork and is built on the fantastic work done in the [palenight.vim][palenightLink] and [quantum](quantumLink) color schemes.
+A dark color scheme for Vim/Neovim based on the [Material](https://github.com/equinusocio/material-theme) color scheme. This is a fork and is built on the fantastic work done in the [palenight.vim](https://github.com/drewtempelmeyer/palenight.vim) and [quantum](https://github.com/tyrannicaltoucan/vim-quantum) color schemes.
 
 ## Screenshots
 
@@ -17,7 +17,7 @@ A dark color scheme for Vim/Neovim based on the [Material][materialLink] color s
 ![](https://raw.githubusercontent.com/kaicataldo/material.vim/master/screenshots/material-palenight.png)
 
 ## Installation
-Using [vim-plug][vimplug] (modify this to work with your Vim package manager of choice):
+Using [vim-plug](https://github.com/junegunn/vim-plug) (modify this to work with your Vim package manager of choice):
 
 ```vim
 Plug 'kaicataldo/material.vim'
@@ -50,7 +50,7 @@ if (has("termguicolors"))
 endif
 ```
 
-### Themes
+### Theme
 
 There are three theme options - `default`, `palenight`, and `dark` (defaulting to `default`). This can be configured as follows:
 
@@ -66,11 +66,24 @@ To turn on italics, configure as follows:
 let g:material_terminal_italics = 1
 ```
 
+### vim-airline & lightline.vim
+
+The included vim-airline and lightline.vim themes will change to match the theme option specified.
+
+To use the included [vim-airline](https://github.com/vim-airline/vim-airline) theme:
+
+```vim
+let g:airline_theme = 'material'
+```
+
+To use the included [lightline.vim](https://github.com/itchyny/lightline.vim) theme:
+
+```vim
+let g:lightline = { 'colorscheme': 'material_vim' }
+```
+
+Note: The included theme is called `material_vim` because lightline.vim comes with its own version of a material theme (which does not change based on the theme version selected).
+
 ### iTerm2 Color Scheme
 
 Corresponding iTerm2 color schemes are included in this repo. You can find theme [here](https://github.com/kaicataldo/material.vim/tree/master/iterm2/).
-
-[materialLink]: https://github.com/equinusocio/material-theme
-[palenightLink]: https://github.com/drewtempelmeyer/palenight.vim
-[quantumLink]: https://github.com/tyrannicaltoucan/vim-quantum 
-[vimplug]: https://github.com/junegunn/vim-plug

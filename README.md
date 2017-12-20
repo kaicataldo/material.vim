@@ -1,6 +1,6 @@
 # material.vim
 
-A dark color scheme for Vim/Neovim based on the [Material][materialLink] color scheme. This is a fork and is built on the fantastic work done in the [palenight.vim][palenightLink] color scheme.
+A dark color scheme for Vim/Neovim based on the [Material][materialLink] color scheme. This is a fork and is built on the fantastic work done in the [palenight.vim][palenightLink] and [quantum](quantumLink) color schemes.
 
 ## Screenshots
 
@@ -72,4 +72,5 @@ Corresponding iTerm2 color schemes are included in this repo. You can find theme
 
 [materialLink]: https://github.com/equinusocio/material-theme
 [palenightLink]: https://github.com/drewtempelmeyer/palenight.vim
+[quantumLink]: https://github.com/tyrannicaltoucan/vim-quantum 
 [vimplug]: https://github.com/junegunn/vim-plug

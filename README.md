@@ -86,4 +86,4 @@ Note: The included theme is called `material_vim` because lightline.vim comes wi
 
 ### iTerm2 Color Scheme
 
-Corresponding iTerm2 color schemes are included in this repo. You can find theme [here](https://github.com/kaicataldo/material.vim/tree/master/iterm2/).
+Corresponding iTerm2 color schemes are included in this repo. You can find them [here](https://github.com/kaicataldo/material.vim/tree/master/iterm2/).

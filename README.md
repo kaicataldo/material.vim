@@ -2,6 +2,20 @@
 
 A dark color scheme for Vim/Neovim based on the [Material][materialLink] color scheme. This is a fork and is built on the fantastic work done in the [palenight.vim][palenightLink] color scheme.
 
+## Screenshots
+
+### Default
+
+![](https://raw.githubusercontent.com/kaicataldo/material.vim/master/screenshots/material.png)
+
+### Dark
+
+![](https://raw.githubusercontent.com/kaicataldo/material.vim/master/screenshots/material-dark.png)
+
+### Palenight
+
+![](https://raw.githubusercontent.com/kaicataldo/material.vim/master/screenshots/material-palenight.png)
+
 ## Installation
 Using [vim-plug][vimplug] (modify this to work with your Vim package manager of choice):
 
@@ -11,7 +25,7 @@ Plug 'kaicataldo/material.vim'
 
 ## Usage
 
-In your wonderfully organized Vim (`~/.vimrc`) or Neovim (`.config/nvim/init.vim`) configuration, place the following two lines:
+To enable this color scheme, add the following to your Vim (`~/.vimrc`) or Neovim (`.config/nvim/init.vim`) configuration:
 
 ```vim
 set background=dark
@@ -20,7 +34,7 @@ colorscheme material
 
 ### True Colors
 
-To provide the best user experience possible, I recommend enabling true colors. To experience the blissfulness of your editor's true colors, place this in your `.vimrc` or `~/.config/nvim/init.vim` file:
+It is recommended to use true colors when using this color scheme. To enable this, place the following in your `.vimrc` or `~/.config/nvim/init.vim` file:
 
 ```vim
 if (has("nvim"))
@@ -54,7 +68,7 @@ let g:material_terminal_italics = 1
 
 ### iTerm2 Color Scheme
 
-An iTerm2 color scheme is included in this repo. You can find it [here](https://github.com/kaicataldo/material.vim/tree/master/iterm2/material.itermcolors).
+Corresponding iTerm2 color schemes are included in this repo. You can find theme [here](https://github.com/kaicataldo/material.vim/tree/master/iterm2/).
 
 [materialLink]: https://github.com/equinusocio/material-theme
 [palenightLink]: https://github.com/drewtempelmeyer/palenight.vim

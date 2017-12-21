@@ -34,7 +34,7 @@ colorscheme material
 
 ### True Colors
 
-It is recommended to use true colors when using this color scheme. To enable this, place the following in your `.vimrc` or `~/.config/nvim/init.vim` file:
+True colors are a requirement for this color scheme to work properly. To enable this, place the following in your `.vimrc` or `~/.config/nvim/init.vim` file:
 
 ```vim
 if (has("nvim"))

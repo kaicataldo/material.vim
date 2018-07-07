@@ -25,7 +25,7 @@ Plug 'kaicataldo/material.vim'
 
 ## Usage
 
-To enable this color scheme, add the following to your Vim (`~/.vimrc`) or Neovim (`.config/nvim/init.vim`) configuration:
+To enable this color scheme, add the following to your Vim (`~/.vimrc`) or Neovim (`~/.config/nvim/init.vim`) configuration:
 
 ```vim
 set background=dark
@@ -34,7 +34,7 @@ colorscheme material
 
 ### True Colors
 
-True colors are a requirement for this color scheme to work properly. To enable this, place the following in your `.vimrc` or `~/.config/nvim/init.vim` file:
+True colors are a requirement for this color scheme to work properly. To enable this, place the following in your `~/.vimrc` or `~/.config/nvim/init.vim` file:
 
 ```vim
 if (has("nvim"))

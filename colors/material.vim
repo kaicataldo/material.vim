@@ -189,6 +189,12 @@ call s:HL('jsTemplateExpression', s:red, '', '')
 call s:HL('jsThis', s:red, '', '')
 call s:HL('jsUndefined', s:orange, '', '')
 
+
+" Golang 
+call s:HL('goComment', s:gray5, '', '')
+call s:HL('goFunctionCall', s:purple, '', '')
+
+
 " JSON
 call s:HL('jsonBraces', s:gray5, '', '')
 
@@ -247,6 +253,9 @@ call s:HL('xmlAttrib', s:yellow, '', 'italic')
 call s:HL('xmlEndTag', s:blue, '', '')
 call s:HL('xmlTag', s:blue, '', '')
 call s:HL('xmlTagName', s:blue, '', '')
+
+
+
 
 " Neovim terminal colors
 if has('nvim')

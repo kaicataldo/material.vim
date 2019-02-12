@@ -189,6 +189,20 @@ call s:HL('jsTemplateExpression', s:red, '', '')
 call s:HL('jsThis', s:red, '', '')
 call s:HL('jsUndefined', s:orange, '', '')
 
+" Golang 
+call s:HL('goFunctionCall', s:blue, '', '')
+call s:HL('goReceiverType', s:green, '', '')
+call s:HL('goParamName', s:orange, '', '')
+call s:HL('goParamType', s:green, '', '')
+call s:HL('goTypeDecl', s:purple, '', '')
+call s:HL('goTypeName', s:yellow, '', '')
+call s:HL('goBuiltins', s:red, '', '')
+call s:HL('goType', s:purple, '', '')
+call s:HL('goSignedInts', s:purple, '', '')
+call s:HL('goUnsignedInts', s:purple, '', '')
+call s:HL('goFloats', s:purple, '', '')
+call s:HL('goComplexes', s:purple, '', '')
+
 " JSON
 call s:HL('jsonBraces', s:gray5, '', '')
 

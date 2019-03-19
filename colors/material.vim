@@ -241,6 +241,26 @@ call s:HL('sassClassChar', s:yellow, '', '')
 call s:HL('sassMixinName', s:blue, '', '')
 call s:HL('sassVariable', s:purple, '', '')
 
+" TeX
+call s:HL('texBeginEndName', s:blue, '', '')
+call s:HL('texMathMatcher', s:blue, '', '')
+call s:HL('texCite', s:green, '', '')
+call s:HL('texRefZone', s:green, '', '')
+call s:HL('texInputFile', s:green, '', '')
+call s:HL('texMath', s:orange, '', '')
+call s:HL('texMathOper', s:yellow, '', '')
+" Uncomment to override defaults
+" call s:HL('texSection', s:purple, '', '')
+" call s:HL('texStatement', s:blue, '', '')
+" call s:HL('texCmdName', s:blue, '', '')
+
+" The following doesnt seem to have any effect
+" call s:HL('texMathSymbol', s:yellow, '', '')
+" call s:HL('texDelimiter', s:cyan, '', '')
+" call s:HL('texMathText', s:yellow, '', '')
+" call s:HL('texMathZoneX', s:green, '', '')
+" call s:HL('texRefGroup', s:green, '', '')
+
 " Vim-Fugitive
 call s:HL('diffAdded', s:green, '', '')
 call s:HL('diffRemoved', s:red, '', '')

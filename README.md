@@ -1,6 +1,6 @@
 # material.vim
 
-A dark color scheme for Vim/Neovim based on the [Material](https://github.com/equinusocio/vsc-material-theme) color scheme. This is a fork and is built on the fantastic work done in the [palenight.vim](https://github.com/drewtempelmeyer/palenight.vim) and [quantum](https://github.com/tyrannicaltoucan/vim-quantum) color schemes.
+A port of the [Material](https://github.com/equinusocio/vsc-material-theme) color scheme for Vim/Neovim.
 
 ## Screenshots
 
@@ -87,3 +87,7 @@ Note: The included theme is called `material_vim` because lightline.vim comes wi
 ### Terminal Color Scheme
 
 Corresponding terminal color schemes are included in this repo. You can find them [here](https://github.com/kaicataldo/material.vim/tree/master/terminal-colors/).
+
+
+## Thanks
+Thanks to [@equinusocio](https://github.com/equinusocio) for the original Material theme as well as [palenight.vim](https://github.com/drewtempelmeyer/palenight.vim) and [quantum](https://github.com/tyrannicaltoucan/vim-quantum), both of which were of great help when I first started this project.

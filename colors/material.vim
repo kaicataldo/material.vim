@@ -241,6 +241,15 @@ call s:HL('sassClassChar', s:yellow, '', '')
 call s:HL('sassMixinName', s:blue, '', '')
 call s:HL('sassVariable', s:purple, '', '')
 
+" TeX
+call s:HL('texBeginEndName', s:blue, '', '')
+call s:HL('texMathMatcher', s:blue, '', '')
+call s:HL('texCite', s:green, '', '')
+call s:HL('texRefZone', s:green, '', '')
+call s:HL('texInputFile', s:green, '', '')
+call s:HL('texMath', s:orange, '', '')
+call s:HL('texMathOper', s:yellow, '', '')
+
 " Vim-Fugitive
 call s:HL('diffAdded', s:green, '', '')
 call s:HL('diffRemoved', s:red, '', '')

@@ -2,7 +2,6 @@
 " Name: material.vim
 " Maintainer: https://github.com/kaicataldo/material.vim
 " License: The MIT License (MIT)
-" Based On: https://github.com/tyrannicaltoucan/vim-quantum
 
 highlight clear
 
@@ -10,137 +9,202 @@ if exists('syntax_on')
   syntax reset
 endif
 
-set background=dark
+" Check configuration
 let g:colors_name = 'material'
-
 let g:material_terminal_italics = get(g:, 'material_terminal_italics', 0)
 let g:material_theme_style = get(g:, 'material_theme_style', 'default')
 
-" Color Palette
-if g:material_theme_style == 'default'
-  let s:gray1 = '#263238'
-elseif g:material_theme_style == 'palenight'
-  let s:gray1 = '#292D3E'
-elseif g:material_theme_style == 'dark'
-  let s:gray1 = '#212121'
+" For backwards compatibility
+if (g:material_theme_style == 'dark')
+  let g:material_theme_style = 'darker'
 endif
 
-let s:gray2 = g:material_theme_style == 'dark' ? '#292929' : '#2c3a41'
-let s:gray3 = g:material_theme_style == 'dark' ? '#474646' : '#425762'
-let s:gray4 = g:material_theme_style == 'dark' ? '#6a6c6c' : '#658494'
-let s:gray5 = g:material_theme_style == 'dark' ? '#b7bdc0' : '#aebbc5'
+" Default colors
+set background=dark
+let s:bg = '#263238'
+let s:fg = '#eeffff'
+let s:invisibles = '#65738e'
+let s:comments = '#546e7a'
+let s:caret = '#ffcc00'
+let s:selection = '#2c3b41'
+let s:guides = '#37474f'
+let s:line_numbers = '#37474f'
+let s:line_highlight = '#000000'
+let s:white = '#ffffff'
+let s:black = '#000000'
 let s:red = '#ff5370'
-let s:green = '#c3e88d'
-let s:yellow = '#ffcb6b'
-let s:blue = '#82aaff'
-let s:purple = '#c792ea'
-let s:cyan = '#89ddff'
 let s:orange = '#f78c6c'
-let s:indigo = '#BB80B3'
+let s:yellow = '#ffcb6b'
+let s:green = '#c3e88d'
+let s:cyan = '#89ddff'
+let s:blue = '#82aaff'
+let s:paleblue = '#b2ccd6'
+let s:purple = '#c792ea'
+let s:brown = '#c17e70'
+let s:pink = '#f07178'
+let s:violet = '#bb80b3'
 
-function! s:HL(group, fg, bg, attr)
+" Theme-specific color overrides
+if g:material_theme_style == 'palenight'
+  let s:bg = '#292d3e'
+  let s:fg = '#a6accd'
+  let s:invisibles = '#4e5579'
+  let s:comments = '#676e95'
+  let s:selection = '#343b51'
+  let s:guides = '#4e5579'
+  let s:line_numbers = '#3a3f58'
+elseif g:material_theme_style == 'darker'
+  let s:bg = '#212121'
+  let s:fg = '#eeffff'
+  let s:invisibles = '#65737e'
+  let s:comments = '#545454'
+  let s:selection = '#2c2c2c'
+  let s:guides = '#424242'
+  let s:line_numbers = '#424242'
+elseif g:material_theme_style == 'ocean'
+  let s:bg = '#0f111a'
+  let s:fg = '#8f93a2'
+  let s:invisibles = '#80869e'
+  let s:comments = '#464b5d'
+  let s:selection = '#1f2233'
+  let s:guides = '#3b3f51'
+  let s:line_numbers = '#3b3f51'
+elseif g:material_theme_style == 'lighter'
+  set background=light
+  let s:bg = '#fafafa'
+  let s:fg = '#90a4ae'
+  let s:invisibles = '#e7eaec'
+  let s:comments = '#90a4ae'
+  let s:caret = '#272727'
+  let s:selection = '#ebf4f3'
+  let s:guides = '#b0bec5'
+  let s:line_numbers = '#cfd8dc'
+  let s:line_highlight = '#CCD7DA'
+  let s:white = '#ffffff'
+  let s:black = '#000000'
+  let s:red = '#e53935'
+  let s:orange = '#f76d47'
+  let s:yellow = '#ffb62c'
+  let s:green = '#91b859'
+  let s:cyan = '#39adb5'
+  let s:blue = '#6182b8'
+  let s:paleblue = '#8796b0'
+  let s:purple = '#7c4dff'
+  let s:brown = '#c17e70'
+  let s:pink = '#ff5370'
+  let s:violet = '#945eb8'
+endif
+
+function! s:SetHighlight(group, fg, bg, attr)
   let l:attr = a:attr
-  if !g:material_terminal_italics && l:attr ==# 'italic'
+
+  if !g:material_terminal_italics && l:attr == 'italic'
+    let l:attr = ''
+  endif
+
+  if empty(l:attr)
     let l:attr = 'none'
   endif
 
   if !empty(a:fg)
     exec 'hi ' . a:group . ' guifg=' . a:fg
   endif
+
   if !empty(a:bg)
     exec 'hi ' . a:group . ' guibg=' . a:bg
   endif
-  if !empty(a:attr)
+
+  if !empty(l:attr)
     exec 'hi ' . a:group . ' gui=' . l:attr . ' cterm=' . l:attr
   endif
 endfun
 
 " Vim Editor
-call s:HL('ColorColumn', '', s:gray3, '')
-call s:HL('Cursor', s:gray2, s:gray5, '')
-call s:HL('CursorColumn', '', s:gray2, '')
-call s:HL('CursorLine', '', s:gray2, 'none')
-call s:HL('CursorLineNr', s:cyan, s:gray2, 'none')
-call s:HL('Directory', s:blue, '', '')
-call s:HL('DiffAdd', s:green, s:gray2, 'none')
-call s:HL('DiffChange', s:yellow, s:gray2, 'none')
-call s:HL('DiffDelete', s:red, s:gray2, 'none')
-call s:HL('DiffText', s:blue, s:gray2, 'none')
-call s:HL('ErrorMsg', s:red, s:gray1, 'bold')
-call s:HL('FoldColumn', s:gray4, s:gray1, '')
-call s:HL('Folded', s:gray3, s:gray1, '')
-call s:HL('IncSearch', s:yellow, '', '')
-call s:HL('LineNr', s:gray3, '', '')
-call s:HL('MatchParen', s:gray4, s:cyan, 'bold')
-call s:HL('ModeMsg', s:green, '', '')
-call s:HL('MoreMsg', s:green, '', '')
-call s:HL('NonText', s:gray4, '', 'none')
-call s:HL('Normal', s:gray5, s:gray1, 'none')
-call s:HL('Pmenu', s:gray5, s:gray3, '')
-call s:HL('PmenuSbar', '', s:gray2, '')
-call s:HL('PmenuSel', s:gray2, s:cyan, '')
-call s:HL('PmenuThumb', '', s:gray4, '')
-call s:HL('Question', s:blue, '', 'none')
-call s:HL('Search', s:gray1, s:yellow, '')
-call s:HL('SignColumn', s:gray5, s:gray1, '')
-call s:HL('SpecialKey', s:gray4, '', '')
-call s:HL('SpellCap', s:blue, s:gray2, 'undercurl')
-call s:HL('SpellBad', s:red, s:gray2, 'undercurl')
-call s:HL('StatusLine', s:gray5, s:gray3, 'none')
-call s:HL('StatusLineNC', s:gray2, s:gray4, '')
-call s:HL('TabLine', s:gray4, s:gray2, 'none')
-call s:HL('TabLineFill', s:gray4, s:gray2, 'none')
-call s:HL('TabLineSel', s:yellow, s:gray3, 'none')
-call s:HL('Title', s:green, '', 'none')
-call s:HL('VertSplit', s:gray4, s:gray1, 'none')
-call s:HL('Visual', s:gray5, s:gray3, '')
-call s:HL('WarningMsg', s:red, '', '')
-call s:HL('WildMenu', s:gray2, s:cyan, '')
+call s:SetHighlight('ColorColumn', '', s:invisibles, '')
+call s:SetHighlight('Cursor', '', s:caret, '')
+call s:SetHighlight('CursorColumn', '', s:line_highlight, '')
+call s:SetHighlight('CursorLine', '', s:line_highlight, '')
+call s:SetHighlight('CursorLineNr', s:comments, '', '')
+call s:SetHighlight('Directory', s:blue, '', '')
+call s:SetHighlight('DiffAdd', s:bg, s:green, '')
+call s:SetHighlight('DiffDelete', s:bg, s:red, '')
+call s:SetHighlight('DiffChange', s:bg, s:yellow, '')
+call s:SetHighlight('DiffText', s:bg, s:yellow, '')
+call s:SetHighlight('ErrorMsg', s:bg, s:red, 'bold')
+call s:SetHighlight('FoldColumn', s:comments, '', '')
+call s:SetHighlight('Folded', s:invisibles, '', '')
+call s:SetHighlight('LineNr', s:line_numbers, '', '')
+call s:SetHighlight('MatchParen', s:comments, s:cyan, 'bold')
+call s:SetHighlight('ModeMsg', s:green, '', '')
+call s:SetHighlight('MoreMsg', s:green, '', '')
+call s:SetHighlight('NonText', s:comments, '', '')
+call s:SetHighlight('Normal', s:fg, s:bg, '')
+call s:SetHighlight('Pmenu', s:fg, '', '')
+call s:SetHighlight('PmenuSbar', s:fg, '', '')
+call s:SetHighlight('PmenuSel', s:bg, s:cyan, '')
+call s:SetHighlight('PmenuThumb', '', s:comments, '')
+call s:SetHighlight('Question', s:blue, '', '')
+call s:SetHighlight('IncSearch', s:white, s:comments, 'none')
+call s:SetHighlight('Search', s:white, s:comments, 'none')
+call s:SetHighlight('SignColumn', s:fg, '', '')
+call s:SetHighlight('SpecialKey', s:comments, '', '')
+call s:SetHighlight('SpellCap', s:blue, '', 'undercurl')
+call s:SetHighlight('SpellBad', s:red, '', 'undercurl')
+call s:SetHighlight('StatusLine', '', '', '')
+call s:SetHighlight('StatusLineNC', '', '', '')
+call s:SetHighlight('TabLine', s:comments, '', '')
+call s:SetHighlight('TabLineFill', s:comments, '', '')
+call s:SetHighlight('TabLineSel', s:yellow, s:invisibles, '')
+call s:SetHighlight('Title', s:green, '', '')
+call s:SetHighlight('VertSplit', s:comments, '', '')
+call s:SetHighlight('Visual', s:fg, s:selection, '')
+call s:SetHighlight('WarningMsg', s:red, '', '')
+call s:SetHighlight('WildMenu', s:bg, s:cyan, '')
 
 " Standard Syntax
-call s:HL('Comment', s:gray4, '', 'italic')
-call s:HL('Constant', s:orange, '', '')
-call s:HL('String', s:green, '', '')
-call s:HL('Character', s:green, '', '')
-call s:HL('Identifier', s:red, '', 'none')
-call s:HL('Function', s:blue, '', '')
-call s:HL('Statement', s:purple, '', 'none')
-call s:HL('Operator', s:cyan, '', '')
-call s:HL('PreProc', s:cyan, '', '')
-call s:HL('Include', s:blue, '', '')
-call s:HL('Define', s:purple, '', 'none')
-call s:HL('Macro', s:purple, '', '')
-call s:HL('Type', s:yellow, '', 'none')
-call s:HL('Structure', s:cyan, '', '')
-call s:HL('Special', s:indigo, '', '')
-call s:HL('Underlined', s:blue, '', 'none')
-call s:HL('Error', s:red, s:gray1, '')
-call s:HL('Todo', s:orange, s:gray1, 'italic')
+call s:SetHighlight('Comment', s:comments, '', 'italic')
+call s:SetHighlight('Constant', s:orange, '', '')
+call s:SetHighlight('String', s:green, '', '')
+call s:SetHighlight('Character', s:green, '', '')
+call s:SetHighlight('Identifier', s:red, '', '')
+call s:SetHighlight('Function', s:blue, '', '')
+call s:SetHighlight('Statement', s:purple, '', '')
+call s:SetHighlight('Operator', s:cyan, '', '')
+call s:SetHighlight('PreProc', s:cyan, '', '')
+call s:SetHighlight('Include', s:blue, '', '')
+call s:SetHighlight('Define', s:purple, '', '')
+call s:SetHighlight('Macro', s:purple, '', '')
+call s:SetHighlight('Type', s:yellow, '', '')
+call s:SetHighlight('Structure', s:cyan, '', '')
+call s:SetHighlight('Special', s:violet, '', '')
+call s:SetHighlight('Underlined', s:blue, '', '')
+call s:SetHighlight('Error', s:red, '', '')
+call s:SetHighlight('Todo', s:orange, '', 'italic')
 
 " CSS
-call s:HL('cssAttrComma', s:gray5, '', '')
-call s:HL('cssPseudoClassId', s:yellow, '', '')
-call s:HL('cssBraces', s:gray5, '', '')
-call s:HL('cssClassName', s:yellow, '', '')
-call s:HL('cssClassNameDot', s:yellow, '', '')
-call s:HL('cssFunctionName', s:blue, '', '')
-call s:HL('cssImportant', s:cyan, '', '')
-call s:HL('cssIncludeKeyword', s:purple, '', '')
-call s:HL('cssTagName', s:red, '', '')
-call s:HL('cssMediaType', s:orange, '', '')
-call s:HL('cssProp', s:gray5, '', '')
-call s:HL('cssSelectorOp', s:cyan, '', '')
-call s:HL('cssSelectorOp2', s:cyan, '', '')
+call s:SetHighlight('cssAttrComma', s:fg, '', '')
+call s:SetHighlight('cssPseudoClassId', s:yellow, '', '')
+call s:SetHighlight('cssBraces', s:fg, '', '')
+call s:SetHighlight('cssClassName', s:yellow, '', '')
+call s:SetHighlight('cssClassNameDot', s:yellow, '', '')
+call s:SetHighlight('cssFunctionName', s:blue, '', '')
+call s:SetHighlight('cssImportant', s:cyan, '', '')
+call s:SetHighlight('cssIncludeKeyword', s:purple, '', '')
+call s:SetHighlight('cssTagName', s:red, '', '')
+call s:SetHighlight('cssMediaType', s:orange, '', '')
+call s:SetHighlight('cssProp', s:fg, '', '')
+call s:SetHighlight('cssSelectorOp', s:cyan, '', '')
+call s:SetHighlight('cssSelectorOp2', s:cyan, '', '')
 
 " Commit Messages (Git)
-call s:HL('gitcommitHeader', s:purple, '', '')
-call s:HL('gitcommitUnmerged', s:green, '', '')
-call s:HL('gitcommitSelectedFile', s:green, '', '')
-call s:HL('gitcommitDiscardedFile', s:red, '', '')
-call s:HL('gitcommitUnmergedFile', s:yellow, '', '')
-call s:HL('gitcommitSelectedType', s:green, '', '')
-call s:HL('gitcommitSummary', s:blue, '', '')
-call s:HL('gitcommitDiscardedType', s:red, '', '')
+call s:SetHighlight('gitcommitHeader', s:purple, '', '')
+call s:SetHighlight('gitcommitUnmerged', s:green, '', '')
+call s:SetHighlight('gitcommitSelectedFile', s:green, '', '')
+call s:SetHighlight('gitcommitDiscardedFile', s:red, '', '')
+call s:SetHighlight('gitcommitUnmergedFile', s:yellow, '', '')
+call s:SetHighlight('gitcommitSelectedType', s:green, '', '')
+call s:SetHighlight('gitcommitSummary', s:blue, '', '')
+call s:SetHighlight('gitcommitDiscardedType', s:red, '', '')
 hi link gitcommitNoBranch gitcommitBranch
 hi link gitcommitUntracked gitcommitComment
 hi link gitcommitDiscarded gitcommitComment
@@ -150,115 +214,115 @@ hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 
 " HTML
-call s:HL('htmlEndTag', s:blue, '', '')
-call s:HL('htmlLink', s:red, '', '')
-call s:HL('htmlTag', s:blue, '', '')
-call s:HL('htmlTitle', s:gray5, '', '')
-call s:HL('htmlSpecialTagName', s:purple, '', '')
-call s:HL('htmlArg', s:yellow, '', 'italic')
+call s:SetHighlight('htmlEndTag', s:blue, '', '')
+call s:SetHighlight('htmlLink', s:red, '', '')
+call s:SetHighlight('htmlTag', s:blue, '', '')
+call s:SetHighlight('htmlTitle', s:fg, '', '')
+call s:SetHighlight('htmlSpecialTagName', s:purple, '', '')
+call s:SetHighlight('htmlArg', s:yellow, '', 'italic')
 
 " Javascript
-call s:HL('javaScriptBraces', s:gray5, '', '')
-call s:HL('javaScriptNull', s:orange, '', '')
-call s:HL('javaScriptIdentifier', s:purple, '', '')
-call s:HL('javaScriptNumber', s:orange, '', '')
-call s:HL('javaScriptRequire', s:cyan, '', '')
-call s:HL('javaScriptReserved', s:purple, '', '')
+call s:SetHighlight('javaScriptBraces', s:fg, '', '')
+call s:SetHighlight('javaScriptNull', s:orange, '', '')
+call s:SetHighlight('javaScriptIdentifier', s:purple, '', '')
+call s:SetHighlight('javaScriptNumber', s:orange, '', '')
+call s:SetHighlight('javaScriptRequire', s:cyan, '', '')
+call s:SetHighlight('javaScriptReserved', s:purple, '', '')
 " pangloss/vim-javascript
-call s:HL('jsArrowFunction', s:purple, '', '')
-call s:HL('jsAsyncKeyword', s:purple, '', '')
-call s:HL('jsExtendsKeyword', s:purple, '', '')
-call s:HL('jsClassKeyword', s:purple, '', '')
-call s:HL('jsDocParam', s:green, '', '')
-call s:HL('jsDocTags', s:cyan, '', '')
-call s:HL('jsForAwait', s:purple, '', '')
-call s:HL('jsFlowArgumentDef', s:yellow, '', '')
-call s:HL('jsFrom', s:purple, '', '')
-call s:HL('jsImport', s:purple, '', '')
-call s:HL('jsExport', s:purple, '', '')
-call s:HL('jsExportDefault', s:purple, '', '')
-call s:HL('jsFuncCall', s:blue, '', '')
-call s:HL('jsFunction', s:purple, '', '')
-call s:HL('jsGlobalObjects', s:yellow, '', '')
-call s:HL('jsGlobalNodeObjects', s:yellow, '', '')
-call s:HL('jsModuleAs', s:purple, '', '')
-call s:HL('jsNull', s:orange, '', '')
-call s:HL('jsStorageClass', s:purple, '', '')
-call s:HL('jsTemplateBraces', s:red, '', '')
-call s:HL('jsTemplateExpression', s:red, '', '')
-call s:HL('jsThis', s:red, '', '')
-call s:HL('jsUndefined', s:orange, '', '')
+call s:SetHighlight('jsArrowFunction', s:purple, '', '')
+call s:SetHighlight('jsAsyncKeyword', s:purple, '', '')
+call s:SetHighlight('jsExtendsKeyword', s:purple, '', '')
+call s:SetHighlight('jsClassKeyword', s:purple, '', '')
+call s:SetHighlight('jsDocParam', s:green, '', '')
+call s:SetHighlight('jsDocTags', s:cyan, '', '')
+call s:SetHighlight('jsForAwait', s:purple, '', '')
+call s:SetHighlight('jsFlowArgumentDef', s:yellow, '', '')
+call s:SetHighlight('jsFrom', s:purple, '', '')
+call s:SetHighlight('jsImport', s:purple, '', '')
+call s:SetHighlight('jsExport', s:purple, '', '')
+call s:SetHighlight('jsExportDefault', s:purple, '', '')
+call s:SetHighlight('jsFuncCall', s:blue, '', '')
+call s:SetHighlight('jsFunction', s:purple, '', '')
+call s:SetHighlight('jsGlobalObjects', s:yellow, '', '')
+call s:SetHighlight('jsGlobalNodeObjects', s:yellow, '', '')
+call s:SetHighlight('jsModuleAs', s:purple, '', '')
+call s:SetHighlight('jsNull', s:orange, '', '')
+call s:SetHighlight('jsStorageClass', s:purple, '', '')
+call s:SetHighlight('jsTemplateBraces', s:red, '', '')
+call s:SetHighlight('jsTemplateExpression', s:red, '', '')
+call s:SetHighlight('jsThis', s:red, '', '')
+call s:SetHighlight('jsUndefined', s:orange, '', '')
 
-" Golang 
-call s:HL('goFunctionCall', s:blue, '', '')
-call s:HL('goReceiverType', s:green, '', '')
-call s:HL('goParamName', s:orange, '', '')
-call s:HL('goParamType', s:green, '', '')
-call s:HL('goTypeDecl', s:purple, '', '')
-call s:HL('goTypeName', s:yellow, '', '')
-call s:HL('goBuiltins', s:red, '', '')
-call s:HL('goType', s:purple, '', '')
-call s:HL('goSignedInts', s:purple, '', '')
-call s:HL('goUnsignedInts', s:purple, '', '')
-call s:HL('goFloats', s:purple, '', '')
-call s:HL('goComplexes', s:purple, '', '')
+" Golang
+call s:SetHighlight('goFunctionCall', s:blue, '', '')
+call s:SetHighlight('goReceiverType', s:green, '', '')
+call s:SetHighlight('goParamName', s:orange, '', '')
+call s:SetHighlight('goParamType', s:green, '', '')
+call s:SetHighlight('goTypeDecl', s:purple, '', '')
+call s:SetHighlight('goTypeName', s:yellow, '', '')
+call s:SetHighlight('goBuiltins', s:red, '', '')
+call s:SetHighlight('goType', s:purple, '', '')
+call s:SetHighlight('goSignedInts', s:purple, '', '')
+call s:SetHighlight('goUnsignedInts', s:purple, '', '')
+call s:SetHighlight('goFloats', s:purple, '', '')
+call s:SetHighlight('goComplexes', s:purple, '', '')
 
 " JSON
-call s:HL('jsonBraces', s:gray5, '', '')
+call s:SetHighlight('jsonBraces', s:fg, '', '')
 
 " Less
-call s:HL('lessAmpersand', s:red, '', '')
-call s:HL('lessClassChar', s:yellow, '', '')
-call s:HL('lessCssAttribute', s:gray5, '', '')
-call s:HL('lessFunction', s:blue, '', '')
-call s:HL('lessVariable', s:purple, '', '')
+call s:SetHighlight('lessAmpersand', s:red, '', '')
+call s:SetHighlight('lessClassChar', s:yellow, '', '')
+call s:SetHighlight('lessCssAttribute', s:fg, '', '')
+call s:SetHighlight('lessFunction', s:blue, '', '')
+call s:SetHighlight('lessVariable', s:purple, '', '')
 
 " Markdown
-call s:HL('markdownBold', s:yellow, '', 'bold')
-call s:HL('markdownCode', s:cyan, '', '')
-call s:HL('markdownCodeBlock', s:cyan, '', '')
-call s:HL('markdownCodeDelimiter', s:cyan, '', '')
-call s:HL('markdownHeadingDelimiter', s:green, '', '')
-call s:HL('markdownHeadingRule', s:gray4, '', '')
-call s:HL('markdownId', s:purple, '', '')
-call s:HL('markdownItalic', s:blue, '', 'italic')
-call s:HL('markdownListMarker', s:orange, '', '')
-call s:HL('markdownOrderedListMarker', s:orange, '', '')
-call s:HL('markdownRule', s:gray4, '', '')
-call s:HL('markdownUrl', s:purple, '', '')
-call s:HL('markdownUrlTitleDelimiter', s:green, '', '')
+call s:SetHighlight('markdownBold', s:yellow, '', 'bold')
+call s:SetHighlight('markdownCode', s:cyan, '', '')
+call s:SetHighlight('markdownCodeBlock', s:cyan, '', '')
+call s:SetHighlight('markdownCodeDelimiter', s:cyan, '', '')
+call s:SetHighlight('markdownHeadingDelimiter', s:green, '', '')
+call s:SetHighlight('markdownHeadingRule', s:comments, '', '')
+call s:SetHighlight('markdownId', s:purple, '', '')
+call s:SetHighlight('markdownItalic', s:blue, '', 'italic')
+call s:SetHighlight('markdownListMarker', s:orange, '', '')
+call s:SetHighlight('markdownOrderedListMarker', s:orange, '', '')
+call s:SetHighlight('markdownRule', s:comments, '', '')
+call s:SetHighlight('markdownUrl', s:purple, '', '')
+call s:SetHighlight('markdownUrlTitleDelimiter', s:green, '', '')
 
 " Ruby
-call s:HL('rubyInterpolation', s:cyan, '', '')
-call s:HL('rubyInterpolationDelimiter', s:indigo, '', '')
-call s:HL('rubyRegexp', s:cyan, '', '')
-call s:HL('rubyRegexpDelimiter', s:indigo, '', '')
-call s:HL('rubyStringDelimiter', s:green, '', '')
+call s:SetHighlight('rubyInterpolation', s:cyan, '', '')
+call s:SetHighlight('rubyInterpolationDelimiter', s:violet, '', '')
+call s:SetHighlight('rubyRegexp', s:cyan, '', '')
+call s:SetHighlight('rubyRegexpDelimiter', s:violet, '', '')
+call s:SetHighlight('rubyStringDelimiter', s:green, '', '')
 
 " Sass
-call s:HL('sassAmpersand', s:red, '', '')
-call s:HL('sassClassChar', s:yellow, '', '')
-call s:HL('sassMixinName', s:blue, '', '')
-call s:HL('sassVariable', s:purple, '', '')
+call s:SetHighlight('sassAmpersand', s:red, '', '')
+call s:SetHighlight('sassClassChar', s:yellow, '', '')
+call s:SetHighlight('sassMixinName', s:blue, '', '')
+call s:SetHighlight('sassVariable', s:purple, '', '')
 
 " TeX
-call s:HL('texBeginEndName', s:blue, '', '')
-call s:HL('texMathMatcher', s:blue, '', '')
-call s:HL('texCite', s:green, '', '')
-call s:HL('texRefZone', s:green, '', '')
-call s:HL('texInputFile', s:green, '', '')
-call s:HL('texMath', s:orange, '', '')
-call s:HL('texMathOper', s:yellow, '', '')
+call s:SetHighlight('texBeginEndName', s:blue, '', '')
+call s:SetHighlight('texMathMatcher', s:blue, '', '')
+call s:SetHighlight('texCite', s:green, '', '')
+call s:SetHighlight('texRefZone', s:green, '', '')
+call s:SetHighlight('texInputFile', s:green, '', '')
+call s:SetHighlight('texMath', s:orange, '', '')
+call s:SetHighlight('texMathOper', s:yellow, '', '')
 
 " Vim-Fugitive
-call s:HL('diffAdded', s:green, '', '')
-call s:HL('diffRemoved', s:red, '', '')
+call s:SetHighlight('diffAdded', s:green, '', '')
+call s:SetHighlight('diffRemoved', s:red, '', '')
 
 " Vim-Gittgutter
-call s:HL('GitGutterAdd', s:green, '', '')
-call s:HL('GitGutterChange', s:yellow, '', '')
-call s:HL('GitGutterChangeDelete', s:orange, '', '')
-call s:HL('GitGutterDelete', s:red, '', '')
+call s:SetHighlight('GitGutterAdd', s:green, '', '')
+call s:SetHighlight('GitGutterChange', s:yellow, '', '')
+call s:SetHighlight('GitGutterChangeDelete', s:orange, '', '')
+call s:SetHighlight('GitGutterDelete', s:red, '', '')
 
 " Vim-Signify
 hi link SignifySignAdd GitGutterAdd
@@ -266,29 +330,29 @@ hi link SignifySignChange GitGutterChange
 hi link SignifySignDelete GitGutterDelete
 
 " XML
-call s:HL('xmlAttrib', s:yellow, '', 'italic')
-call s:HL('xmlEndTag', s:blue, '', '')
-call s:HL('xmlTag', s:blue, '', '')
-call s:HL('xmlTagName', s:blue, '', '')
+call s:SetHighlight('xmlAttrib', s:yellow, '', 'italic')
+call s:SetHighlight('xmlEndTag', s:blue, '', '')
+call s:SetHighlight('xmlTag', s:blue, '', '')
+call s:SetHighlight('xmlTagName', s:blue, '', '')
 
 " Neovim terminal colors
 if has('nvim')
-  let g:terminal_color_0 = s:gray1
+  let g:terminal_color_background = s:bg
+  let g:terminal_color_foreground = s:fg
+  let g:terminal_color_0 = s:black
   let g:terminal_color_1 = s:red
   let g:terminal_color_2 = s:green
   let g:terminal_color_3 = s:yellow
   let g:terminal_color_4 = s:blue
   let g:terminal_color_5 = s:purple
   let g:terminal_color_6 = s:cyan
-  let g:terminal_color_7 = s:gray5
-  let g:terminal_color_8 = s:gray3
-  let g:terminal_color_9 = s:red
-  let g:terminal_color_10 = s:green
-  let g:terminal_color_11 = s:yellow
-  let g:terminal_color_12 = s:blue
-  let g:terminal_color_13 = s:purple
-  let g:terminal_color_14 = s:cyan
-  let g:terminal_color_15 = s:gray4
-  let g:terminal_color_background = g:terminal_color_0
-  let g:terminal_color_foreground = g:terminal_color_7
+  let g:terminal_color_7 = s:white
+  let g:terminal_color_8 = g:terminal_color_0
+  let g:terminal_color_9 = g:terminal_color_1
+  let g:terminal_color_10 = g:terminal_color_2
+  let g:terminal_color_11 = g:terminal_color_3
+  let g:terminal_color_12 = g:terminal_color_4
+  let g:terminal_color_13 = g:terminal_color_5
+  let g:terminal_color_14 = g:terminal_color_6
+  let g:terminal_color_15 = g:terminal_color_7
 endif

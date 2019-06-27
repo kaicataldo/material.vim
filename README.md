@@ -52,10 +52,10 @@ endif
 
 ### Theme
 
-There are three theme options - `default`, `palenight`, and `dark` (defaulting to `default`). This can be configured as follows:
+There are three theme options - `default`, `palenight`, `ocean`, `lighter`, and `darker` (defaulting to `default`). This can be configured as follows:
 
 ```vim
-let g:material_theme_style = 'default' | 'palenight' | 'dark'
+let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
 ```
 
 ### Italics

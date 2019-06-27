@@ -3,21 +3,51 @@
 " Maintainer: https://github.com/kaicataldo/material.vim
 " License: The MIT License (MIT)
 
+" === Configuration ===
+
+" Clear any other set colors
 highlight clear
 
 if exists('syntax_on')
   syntax reset
 endif
 
-" Check configuration
 let g:colors_name = 'material'
-let g:material_terminal_italics = get(g:, 'material_terminal_italics', 0)
 let g:material_theme_style = get(g:, 'material_theme_style', 'default')
+let g:material_terminal_italics = get(g:, 'material_terminal_italics', 0)
 
 " For backwards compatibility
 if (g:material_theme_style == 'dark')
   let g:material_theme_style = 'darker'
 endif
+
+" === Functions ===
+
+function! s:SetHighlight(group, fg, bg, attr)
+  let l:attr = a:attr
+
+  if !g:material_terminal_italics && l:attr == 'italic'
+    let l:attr = ''
+  endif
+
+  if empty(l:attr)
+    let l:attr = 'none'
+  endif
+
+  if !empty(a:fg)
+    exec 'hi ' . a:group . ' guifg=' . a:fg
+  endif
+
+  if !empty(a:bg)
+    exec 'hi ' . a:group . ' guibg=' . a:bg
+  endif
+
+  if !empty(l:attr)
+    exec 'hi ' . a:group . ' gui=' . l:attr . ' cterm=' . l:attr
+  endif
+endfun
+
+" === Color Definitions ===
 
 " Default colors
 set background=dark
@@ -95,29 +125,32 @@ elseif g:material_theme_style == 'lighter'
   let s:violet = '#945eb8'
 endif
 
-function! s:SetHighlight(group, fg, bg, attr)
-  let l:attr = a:attr
+" Defined globally so that the Airline theme has access
+let g:material_colorscheme_map = {}
+let g:material_colorscheme_map.bg = s:bg
+let g:material_colorscheme_map.fg = s:fg
+let g:material_colorscheme_map.invisibles = s:invisibles
+let g:material_colorscheme_map.comments = s:comments
+let g:material_colorscheme_map.caret = s:caret
+let g:material_colorscheme_map.selection = s:selection
+let g:material_colorscheme_map.guides = s:guides
+let g:material_colorscheme_map.line_numbers = s:line_numbers
+let g:material_colorscheme_map.line_highlight = s:line_highlight
+let g:material_colorscheme_map.white = s:white
+let g:material_colorscheme_map.black = s:black
+let g:material_colorscheme_map.red = s:red
+let g:material_colorscheme_map.orange = s:orange
+let g:material_colorscheme_map.yellow = s:yellow
+let g:material_colorscheme_map.green = s:green
+let g:material_colorscheme_map.cyan = s:cyan
+let g:material_colorscheme_map.blue = s:blue
+let g:material_colorscheme_map.paleblue = s:paleblue
+let g:material_colorscheme_map.purple = s:purple
+let g:material_colorscheme_map.brown = s:brown
+let g:material_colorscheme_map.pink = s:pink
+let g:material_colorscheme_map.violet = s:violet
 
-  if !g:material_terminal_italics && l:attr == 'italic'
-    let l:attr = ''
-  endif
-
-  if empty(l:attr)
-    let l:attr = 'none'
-  endif
-
-  if !empty(a:fg)
-    exec 'hi ' . a:group . ' guifg=' . a:fg
-  endif
-
-  if !empty(a:bg)
-    exec 'hi ' . a:group . ' guibg=' . a:bg
-  endif
-
-  if !empty(l:attr)
-    exec 'hi ' . a:group . ' gui=' . l:attr . ' cterm=' . l:attr
-  endif
-endfun
+" === Highlights ===
 
 " Vim Editor
 call s:SetHighlight('ColorColumn', '', s:invisibles, '')
@@ -161,7 +194,7 @@ call s:SetHighlight('Visual', s:fg, s:selection, '')
 call s:SetHighlight('WarningMsg', s:red, '', '')
 call s:SetHighlight('WildMenu', s:bg, s:cyan, '')
 
-" Standard Syntax
+" Syntax
 call s:SetHighlight('Comment', s:comments, '', 'italic')
 call s:SetHighlight('Constant', s:orange, '', '')
 call s:SetHighlight('String', s:green, '', '')
@@ -196,7 +229,7 @@ call s:SetHighlight('cssProp', s:fg, '', '')
 call s:SetHighlight('cssSelectorOp', s:cyan, '', '')
 call s:SetHighlight('cssSelectorOp2', s:cyan, '', '')
 
-" Commit Messages (Git)
+" Git Commit Messages
 call s:SetHighlight('gitcommitHeader', s:purple, '', '')
 call s:SetHighlight('gitcommitUnmerged', s:green, '', '')
 call s:SetHighlight('gitcommitSelectedFile', s:green, '', '')
@@ -314,17 +347,17 @@ call s:SetHighlight('texInputFile', s:green, '', '')
 call s:SetHighlight('texMath', s:orange, '', '')
 call s:SetHighlight('texMathOper', s:yellow, '', '')
 
-" Vim-Fugitive
+" vim-fugitive
 call s:SetHighlight('diffAdded', s:green, '', '')
 call s:SetHighlight('diffRemoved', s:red, '', '')
 
-" Vim-Gittgutter
+" vim-gitgutter
 call s:SetHighlight('GitGutterAdd', s:green, '', '')
 call s:SetHighlight('GitGutterChange', s:yellow, '', '')
 call s:SetHighlight('GitGutterChangeDelete', s:orange, '', '')
 call s:SetHighlight('GitGutterDelete', s:red, '', '')
 
-" Vim-Signify
+" vim-signify
 hi link SignifySignAdd GitGutterAdd
 hi link SignifySignChange GitGutterChange
 hi link SignifySignDelete GitGutterDelete
@@ -357,27 +390,3 @@ if has('nvim')
   let g:terminal_color_15 = g:terminal_color_7
 endif
 
-" Defined globally so that the Airline theme has access
-let g:material_colorscheme_map = {}
-let g:material_colorscheme_map.bg = s:bg
-let g:material_colorscheme_map.fg = s:fg
-let g:material_colorscheme_map.invisibles = s:invisibles
-let g:material_colorscheme_map.comments = s:comments
-let g:material_colorscheme_map.caret = s:caret
-let g:material_colorscheme_map.selection = s:selection
-let g:material_colorscheme_map.guides = s:guides
-let g:material_colorscheme_map.line_numbers = s:line_numbers
-let g:material_colorscheme_map.line_highlight = s:line_highlight
-let g:material_colorscheme_map.white = s:white
-let g:material_colorscheme_map.black = s:black
-let g:material_colorscheme_map.red = s:red
-let g:material_colorscheme_map.orange = s:orange
-let g:material_colorscheme_map.yellow = s:yellow
-let g:material_colorscheme_map.green = s:green
-let g:material_colorscheme_map.cyan = s:cyan
-let g:material_colorscheme_map.blue = s:blue
-let g:material_colorscheme_map.paleblue = s:paleblue
-let g:material_colorscheme_map.purple = s:purple
-let g:material_colorscheme_map.brown = s:brown
-let g:material_colorscheme_map.pink = s:pink
-let g:material_colorscheme_map.violet = s:violet

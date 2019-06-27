@@ -79,7 +79,7 @@ elseif g:material_theme_style == 'lighter'
   let s:selection = '#ebf4f3'
   let s:guides = '#b0bec5'
   let s:line_numbers = '#cfd8dc'
-  let s:line_highlight = '#CCD7DA'
+  let s:line_highlight = '#ccd7da'
   let s:white = '#ffffff'
   let s:black = '#000000'
   let s:red = '#e53935'
@@ -356,3 +356,28 @@ if has('nvim')
   let g:terminal_color_14 = g:terminal_color_6
   let g:terminal_color_15 = g:terminal_color_7
 endif
+
+" Defined globally so that the Airline theme has access
+let g:material_colorscheme_map = {}
+let g:material_colorscheme_map.bg = s:bg
+let g:material_colorscheme_map.fg = s:fg
+let g:material_colorscheme_map.invisibles = s:invisibles
+let g:material_colorscheme_map.comments = s:comments
+let g:material_colorscheme_map.caret = s:caret
+let g:material_colorscheme_map.selection = s:selection
+let g:material_colorscheme_map.guides = s:guides
+let g:material_colorscheme_map.line_numbers = s:line_numbers
+let g:material_colorscheme_map.line_highlight = s:line_highlight
+let g:material_colorscheme_map.white = s:white
+let g:material_colorscheme_map.black = s:black
+let g:material_colorscheme_map.red = s:red
+let g:material_colorscheme_map.orange = s:orange
+let g:material_colorscheme_map.yellow = s:yellow
+let g:material_colorscheme_map.green = s:green
+let g:material_colorscheme_map.cyan = s:cyan
+let g:material_colorscheme_map.blue = s:blue
+let g:material_colorscheme_map.paleblue = s:paleblue
+let g:material_colorscheme_map.purple = s:purple
+let g:material_colorscheme_map.brown = s:brown
+let g:material_colorscheme_map.pink = s:pink
+let g:material_colorscheme_map.violet = s:violet

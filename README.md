@@ -17,6 +17,7 @@ A port of the [Material](https://github.com/equinusocio/vsc-material-theme) colo
 ![](https://raw.githubusercontent.com/kaicataldo/material.vim/master/screenshots/material-palenight.png)
 
 ## Installation
+
 Using [vim-plug](https://github.com/junegunn/vim-plug) (modify this to work with your Vim package manager of choice):
 
 ```vim
@@ -66,21 +67,15 @@ To turn on italics, configure as follows:
 let g:material_terminal_italics = 1
 ```
 
-### vim-airline & lightline.vim
+### lightline.vim
 
-The included vim-airline and lightline.vim themes will change to match the theme option specified.
-
-To use the included [vim-airline](https://github.com/vim-airline/vim-airline) theme:
-
-```vim
-let g:airline_theme = 'material'
-```
-
-To use the included [lightline.vim](https://github.com/itchyny/lightline.vim) theme:
+To use the theme, install [lightline.vim](https://github.com/itchyny/lightline.vim) with your Vim package manager of choice and then add the following to your configuration file:
 
 ```vim
 let g:lightline = { 'colorscheme': 'material_vim' }
 ```
+
+The theme will change to match the theme option specified.
 
 Note: The included theme is called `material_vim` because lightline.vim comes with its own version of a material theme (which does not change based on the theme version selected).
 
@@ -90,4 +85,6 @@ Corresponding terminal color schemes are included in this repo. You can find the
 
 
 ## Thanks
+
 Thanks to [@equinusocio](https://github.com/equinusocio) for the original Material theme as well as [palenight.vim](https://github.com/drewtempelmeyer/palenight.vim) and [quantum](https://github.com/tyrannicaltoucan/vim-quantum), both of which were of great help when I first started this project.
+

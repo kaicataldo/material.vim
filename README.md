@@ -17,7 +17,7 @@ Plug 'kaicataldo/material.vim'
 To enable this color scheme, add the following to your Vim (`~/.vimrc`) or Neovim (`~/.config/nvim/init.vim`) configuration:
 
 ```vim
-set background=dark
+set background = dark
 colorscheme material
 ```
 
@@ -45,6 +45,14 @@ There are five theme options - `default`, `palenight`, `ocean`, `lighter`, and `
 
 ```vim
 let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+```
+
+When setting the theme to `lighter`, it's also a good idea to set `set background = dark`. Example:
+
+```vim
+let g:material_theme_style = 'lighter'
+set background = light
+colorscheme material
 ```
 
 ### Italics

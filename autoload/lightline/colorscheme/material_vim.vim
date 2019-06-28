@@ -1,53 +1,31 @@
 if (exists('g:lightline'))
-  let g:material_theme_style = get(g:, 'material_theme_style', 'default')
+  let s:lighter_middle_fg = g:material_theme_style == 'lighter' ? g:material_colorscheme_map.fg : g:material_colorscheme_map.invisibles
 
-  " Color palette
-  if g:material_theme_style == 'default'
-    let s:gray1 = '#263238'
-  elseif g:material_theme_style == 'palenight'
-    let s:gray1 = '#292D3E'
-  elseif g:material_theme_style == 'dark'
-    let s:gray1 = '#212121'
-  endif
+  let s:palette = { 'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {} }
 
-  let s:gray2 = g:material_theme_style == 'dark' ? '#292929' : '#2c3a41'
-  let s:gray3 = g:material_theme_style == 'dark' ? '#474646' : '#425762'
-  let s:gray4 = g:material_theme_style == 'dark' ? '#6a6c6c' : '#658494'
-  let s:gray5 = g:material_theme_style == 'dark' ? '#b7bdc0' : '#aebbc5'
-  let s:red = '#ff5370'
-  let s:green = '#c3e88d'
-  let s:yellow = '#ffcb6b'
-  let s:blue = '#82aaff'
-  let s:purple = '#c792ea'
-  let s:cyan = '#89ddff'
-  let s:orange = '#f78c6c'
-  let s:indigo = '#BB80B3'
+  let s:palette.normal.left = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.cyan ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
+  let s:palette.normal.right = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.cyan ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
+  let s:palette.normal.middle = [ [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
+  let s:palette.normal.error = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.red ] ]
+  let s:palette.normal.warning = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.yellow ] ]
 
-  let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+  let s:palette.insert.left = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.purple ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
+  let s:palette.insert.right = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.purple ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
 
-  let s:p.normal.left = [ [ s:gray2, s:blue ], [ s:gray5, s:gray3 ] ]
-  let s:p.normal.right = [ [ s:gray2, s:blue ], [ s:gray5, s:gray3 ] ]
-  let s:p.normal.middle = [ [ s:gray4, s:gray2 ] ]
-  let s:p.normal.error = [ [ s:gray2, s:red ] ]
-  let s:p.normal.warning = [ [ s:gray2, s:yellow ] ]
+  let s:palette.replace.left = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.green ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
+  let s:palette.replace.right = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.green ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
 
-  let s:p.insert.left = [ [ s:gray2, s:green ], [ s:gray5, s:gray3 ] ]
-  let s:p.insert.right = [ [ s:gray2, s:green ], [ s:gray5, s:gray3 ] ]
+  let s:palette.visual.left = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.blue ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
+  let s:palette.visual.right = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.blue ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
 
-  let s:p.replace.left = [ [ s:gray2, s:red ], [ s:gray5, s:gray3 ] ]
-  let s:p.replace.right = [ [ s:gray2, s:red ], [ s:gray5, s:gray3 ] ]
+  let s:palette.inactive.left =  [ [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ], [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
+  let s:palette.inactive.right = [ [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ], [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
+  let s:palette.inactive.middle = [ [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
 
-  let s:p.visual.left = [ [ s:gray2, s:orange ], [ s:gray5, s:gray3 ] ]
-  let s:p.visual.right = [ [ s:gray2, s:orange ], [ s:gray5, s:gray3 ] ]
+  let s:palette.tabline.left = [ [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
+  let s:palette.tabline.middle = [ [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
+  let s:palette.tabline.right = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.cyan ] ]
+  let s:palette.tabline.tabsel = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.cyan ] ]
 
-  let s:p.inactive.left =  [ [ s:gray5, s:gray3 ], [ s:gray4, s:gray2 ] ]
-  let s:p.inactive.right = [ [ s:gray5, s:gray3 ], [ s:gray4, s:gray2 ] ]
-  let s:p.inactive.middle = [ [ s:gray4, s:gray2 ] ]
-
-  let s:p.tabline.left = [ [ s:gray5, s:gray3 ] ]
-  let s:p.tabline.middle = [ [ s:gray4, s:gray2 ] ]
-  let s:p.tabline.right = [ [ s:gray2, s:blue ] ]
-  let s:p.tabline.tabsel = [ [ s:gray2, s:blue ] ]
-
-  let g:lightline#colorscheme#material_vim#palette = lightline#colorscheme#fill(s:p)
+  let g:lightline#colorscheme#material_vim#palette = lightline#colorscheme#fill(s:palette)
 endif

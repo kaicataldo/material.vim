@@ -154,8 +154,7 @@ let g:material_colorscheme_map.violet = s:violet
 
 " Vim Editor
 call s:SetHighlight('ColorColumn', '', s:invisibles, '')
-call s:SetHighlight('Conceal', s:brown, s:bg, '')
-call s:SetHighlight('Cursor', '', s:caret, '')
+call s:SetHighlight('Cursor', 's:bg', s:caret, '')
 call s:SetHighlight('CursorColumn', '', s:line_highlight, '')
 call s:SetHighlight('CursorLine', '', s:line_highlight, '')
 call s:SetHighlight('CursorLineNr', s:comments, '', '')
@@ -165,7 +164,7 @@ call s:SetHighlight('DiffDelete', s:bg, s:red, '')
 call s:SetHighlight('DiffChange', s:bg, s:yellow, '')
 call s:SetHighlight('DiffText', s:bg, s:yellow, '')
 call s:SetHighlight('ErrorMsg', s:bg, s:red, 'bold')
-call s:SetHighlight('FoldColumn', s:comments, s:bg, '')
+call s:SetHighlight('FoldColumn', s:line_numbers, s:bg, '')
 call s:SetHighlight('Folded', s:comments, s:bg, 'bold')
 call s:SetHighlight('LineNr', s:line_numbers, '', '')
 call s:SetHighlight('MatchParen', s:comments, s:cyan, 'bold')
@@ -186,6 +185,8 @@ call s:SetHighlight('SpellCap', s:blue, '', 'undercurl')
 call s:SetHighlight('SpellBad', s:red, '', 'undercurl')
 call s:SetHighlight('StatusLine', s:fg, s:selection, '')
 call s:SetHighlight('StatusLineNC', s:comments, s:selection, '')
+call s:SetHighlight('StatusLineTerm', s:bg, s:green, '')
+call s:SetHighlight('StatusLineTermNC', s:bg, s:green, '')
 call s:SetHighlight('TabLine', s:fg, s:selection, '')
 call s:SetHighlight('TabLineFill', s:fg, s:selection, '')
 call s:SetHighlight('TabLineSel', s:fg, s:selection, '')
@@ -197,6 +198,7 @@ call s:SetHighlight('WildMenu', s:bg, s:cyan, '')
 
 " Syntax
 call s:SetHighlight('Comment', s:comments, '', 'italic')
+call s:SetHighlight('Conceal', s:brown, s:bg, '')
 call s:SetHighlight('Constant', s:orange, '', '')
 call s:SetHighlight('String', s:green, '', '')
 call s:SetHighlight('Character', s:green, '', '')
@@ -212,23 +214,8 @@ call s:SetHighlight('Type', s:yellow, '', '')
 call s:SetHighlight('Structure', s:cyan, '', '')
 call s:SetHighlight('Special', s:violet, '', '')
 call s:SetHighlight('Underlined', s:blue, '', '')
-call s:SetHighlight('Error', s:red, '', '')
-call s:SetHighlight('Todo', s:orange, '', 'italic')
-
-" CSS
-call s:SetHighlight('cssAttrComma', s:fg, '', '')
-call s:SetHighlight('cssPseudoClassId', s:yellow, '', '')
-call s:SetHighlight('cssBraces', s:fg, '', '')
-call s:SetHighlight('cssClassName', s:yellow, '', '')
-call s:SetHighlight('cssClassNameDot', s:yellow, '', '')
-call s:SetHighlight('cssFunctionName', s:blue, '', '')
-call s:SetHighlight('cssImportant', s:cyan, '', '')
-call s:SetHighlight('cssIncludeKeyword', s:purple, '', '')
-call s:SetHighlight('cssTagName', s:red, '', '')
-call s:SetHighlight('cssMediaType', s:orange, '', '')
-call s:SetHighlight('cssProp', s:fg, '', '')
-call s:SetHighlight('cssSelectorOp', s:cyan, '', '')
-call s:SetHighlight('cssSelectorOp2', s:cyan, '', '')
+call s:SetHighlight('Error', s:bg, s:red, '')
+call s:SetHighlight('Todo', s:orange, s:bg, 'italic')
 
 " Git Commit Messages
 call s:SetHighlight('gitcommitHeader', s:purple, '', '')
@@ -247,14 +234,6 @@ hi link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 
-" HTML
-call s:SetHighlight('htmlEndTag', s:blue, '', '')
-call s:SetHighlight('htmlLink', s:red, '', '')
-call s:SetHighlight('htmlTag', s:blue, '', '')
-call s:SetHighlight('htmlTitle', s:fg, '', '')
-call s:SetHighlight('htmlSpecialTagName', s:purple, '', '')
-call s:SetHighlight('htmlArg', s:yellow, '', 'italic')
-
 " Javascript
 call s:SetHighlight('javaScriptBraces', s:fg, '', '')
 call s:SetHighlight('javaScriptNull', s:orange, '', '')
@@ -262,6 +241,7 @@ call s:SetHighlight('javaScriptIdentifier', s:purple, '', '')
 call s:SetHighlight('javaScriptNumber', s:orange, '', '')
 call s:SetHighlight('javaScriptRequire', s:cyan, '', '')
 call s:SetHighlight('javaScriptReserved', s:purple, '', '')
+
 " pangloss/vim-javascript
 call s:SetHighlight('jsArrowFunction', s:purple, '', '')
 call s:SetHighlight('jsAsyncKeyword', s:purple, '', '')
@@ -287,6 +267,51 @@ call s:SetHighlight('jsTemplateExpression', s:red, '', '')
 call s:SetHighlight('jsThis', s:red, '', '')
 call s:SetHighlight('jsUndefined', s:orange, '', '')
 
+" JSON
+call s:SetHighlight('jsonBraces', s:fg, '', '')
+
+" CSS
+call s:SetHighlight('cssAttrComma', s:fg, '', '')
+call s:SetHighlight('cssPseudoClassId', s:yellow, '', '')
+call s:SetHighlight('cssBraces', s:fg, '', '')
+call s:SetHighlight('cssClassName', s:yellow, '', '')
+call s:SetHighlight('cssClassNameDot', s:yellow, '', '')
+call s:SetHighlight('cssFunctionName', s:blue, '', '')
+call s:SetHighlight('cssImportant', s:cyan, '', '')
+call s:SetHighlight('cssIncludeKeyword', s:purple, '', '')
+call s:SetHighlight('cssTagName', s:red, '', '')
+call s:SetHighlight('cssMediaType', s:orange, '', '')
+call s:SetHighlight('cssProp', s:fg, '', '')
+call s:SetHighlight('cssSelectorOp', s:cyan, '', '')
+call s:SetHighlight('cssSelectorOp2', s:cyan, '', '')
+
+" Sass
+call s:SetHighlight('sassAmpersand', s:red, '', '')
+call s:SetHighlight('sassClassChar', s:yellow, '', '')
+call s:SetHighlight('sassMixinName', s:blue, '', '')
+call s:SetHighlight('sassVariable', s:purple, '', '')
+
+" Less
+call s:SetHighlight('lessAmpersand', s:red, '', '')
+call s:SetHighlight('lessClassChar', s:yellow, '', '')
+call s:SetHighlight('lessCssAttribute', s:fg, '', '')
+call s:SetHighlight('lessFunction', s:blue, '', '')
+call s:SetHighlight('lessVariable', s:purple, '', '')
+
+" HTML
+call s:SetHighlight('htmlEndTag', s:blue, '', '')
+call s:SetHighlight('htmlLink', s:red, '', '')
+call s:SetHighlight('htmlTag', s:blue, '', '')
+call s:SetHighlight('htmlTitle', s:fg, '', '')
+call s:SetHighlight('htmlSpecialTagName', s:purple, '', '')
+call s:SetHighlight('htmlArg', s:yellow, '', 'italic')
+
+" XML
+call s:SetHighlight('xmlAttrib', s:yellow, '', 'italic')
+call s:SetHighlight('xmlEndTag', s:blue, '', '')
+call s:SetHighlight('xmlTag', s:blue, '', '')
+call s:SetHighlight('xmlTagName', s:blue, '', '')
+
 " Golang
 call s:SetHighlight('goFunctionCall', s:blue, '', '')
 call s:SetHighlight('goReceiverType', s:green, '', '')
@@ -301,15 +326,21 @@ call s:SetHighlight('goUnsignedInts', s:purple, '', '')
 call s:SetHighlight('goFloats', s:purple, '', '')
 call s:SetHighlight('goComplexes', s:purple, '', '')
 
-" JSON
-call s:SetHighlight('jsonBraces', s:fg, '', '')
+" Ruby
+call s:SetHighlight('rubyInterpolation', s:cyan, '', '')
+call s:SetHighlight('rubyInterpolationDelimiter', s:violet, '', '')
+call s:SetHighlight('rubyRegexp', s:cyan, '', '')
+call s:SetHighlight('rubyRegexpDelimiter', s:violet, '', '')
+call s:SetHighlight('rubyStringDelimiter', s:green, '', '')
 
-" Less
-call s:SetHighlight('lessAmpersand', s:red, '', '')
-call s:SetHighlight('lessClassChar', s:yellow, '', '')
-call s:SetHighlight('lessCssAttribute', s:fg, '', '')
-call s:SetHighlight('lessFunction', s:blue, '', '')
-call s:SetHighlight('lessVariable', s:purple, '', '')
+" TeX
+call s:SetHighlight('texBeginEndName', s:blue, '', '')
+call s:SetHighlight('texMathMatcher', s:blue, '', '')
+call s:SetHighlight('texCite', s:green, '', '')
+call s:SetHighlight('texRefZone', s:green, '', '')
+call s:SetHighlight('texInputFile', s:green, '', '')
+call s:SetHighlight('texMath', s:orange, '', '')
+call s:SetHighlight('texMathOper', s:yellow, '', '')
 
 " Markdown
 call s:SetHighlight('markdownBold', s:yellow, '', 'bold')
@@ -326,28 +357,6 @@ call s:SetHighlight('markdownRule', s:comments, '', '')
 call s:SetHighlight('markdownUrl', s:purple, '', '')
 call s:SetHighlight('markdownUrlTitleDelimiter', s:green, '', '')
 
-" Ruby
-call s:SetHighlight('rubyInterpolation', s:cyan, '', '')
-call s:SetHighlight('rubyInterpolationDelimiter', s:violet, '', '')
-call s:SetHighlight('rubyRegexp', s:cyan, '', '')
-call s:SetHighlight('rubyRegexpDelimiter', s:violet, '', '')
-call s:SetHighlight('rubyStringDelimiter', s:green, '', '')
-
-" Sass
-call s:SetHighlight('sassAmpersand', s:red, '', '')
-call s:SetHighlight('sassClassChar', s:yellow, '', '')
-call s:SetHighlight('sassMixinName', s:blue, '', '')
-call s:SetHighlight('sassVariable', s:purple, '', '')
-
-" TeX
-call s:SetHighlight('texBeginEndName', s:blue, '', '')
-call s:SetHighlight('texMathMatcher', s:blue, '', '')
-call s:SetHighlight('texCite', s:green, '', '')
-call s:SetHighlight('texRefZone', s:green, '', '')
-call s:SetHighlight('texInputFile', s:green, '', '')
-call s:SetHighlight('texMath', s:orange, '', '')
-call s:SetHighlight('texMathOper', s:yellow, '', '')
-
 " vim-fugitive
 call s:SetHighlight('diffAdded', s:green, '', '')
 call s:SetHighlight('diffRemoved', s:red, '', '')
@@ -363,11 +372,8 @@ hi link SignifySignAdd GitGutterAdd
 hi link SignifySignChange GitGutterChange
 hi link SignifySignDelete GitGutterDelete
 
-" XML
-call s:SetHighlight('xmlAttrib', s:yellow, '', 'italic')
-call s:SetHighlight('xmlEndTag', s:blue, '', '')
-call s:SetHighlight('xmlTag', s:blue, '', '')
-call s:SetHighlight('xmlTagName', s:blue, '', '')
+" vim-better-whitespace
+call s:SetHighlight('ExtraWhitespace', '', s:red, '')
 
 " Neovim terminal colors
 if has('nvim')

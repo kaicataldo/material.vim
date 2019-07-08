@@ -18,8 +18,8 @@ if (exists('g:lightline'))
   let s:palette.visual.left = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.blue ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
   let s:palette.visual.right = [ [ g:material_colorscheme_map.bg, g:material_colorscheme_map.blue ], [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]
 
-  let s:palette.inactive.left =  [ [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ], [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
-  let s:palette.inactive.right = [ [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ], [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
+  let s:palette.inactive.left =  [ [ s:lighter_middle_fg, g:material_colorscheme_map.selection ], [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
+  let s:palette.inactive.right = [ [ s:lighter_middle_fg, g:material_colorscheme_map.selection ], [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
   let s:palette.inactive.middle = [ [ s:lighter_middle_fg, g:material_colorscheme_map.selection ] ]
 
   let s:palette.tabline.left = [ [ g:material_colorscheme_map.fg, g:material_colorscheme_map.line_numbers ] ]

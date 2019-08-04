@@ -162,7 +162,7 @@ call s:SetHighlight('Directory', s:blue, '', '')
 call s:SetHighlight('DiffAdd', s:bg, s:green, '')
 call s:SetHighlight('DiffDelete', s:bg, s:red, '')
 call s:SetHighlight('DiffChange', s:bg, s:yellow, '')
-call s:SetHighlight('DiffText', s:bg, s:yellow, '')
+call s:SetHighlight('DiffText', s:bg, s:orange, '')
 call s:SetHighlight('ErrorMsg', s:bg, s:red, 'bold')
 call s:SetHighlight('FoldColumn', s:line_numbers, s:bg, '')
 call s:SetHighlight('Folded', s:brown, s:bg, 'bold')
@@ -356,10 +356,6 @@ call s:SetHighlight('markdownOrderedListMarker', s:orange, '', '')
 call s:SetHighlight('markdownRule', s:comments, '', '')
 call s:SetHighlight('markdownUrl', s:purple, '', '')
 call s:SetHighlight('markdownUrlTitleDelimiter', s:green, '', '')
-
-" vim-fugitive
-call s:SetHighlight('diffAdded', s:green, '', '')
-call s:SetHighlight('diffRemoved', s:red, '', '')
 
 " vim-gitgutter
 call s:SetHighlight('GitGutterAdd', s:green, '', '')

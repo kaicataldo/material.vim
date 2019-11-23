@@ -268,7 +268,19 @@ call s:SetHighlight('jsThis', s:red, '', '')
 call s:SetHighlight('jsUndefined', s:orange, '', '')
 
 " MaxMEllon/vim-jsx-pretty
-call s:SetHighlight('jsxAttrib', s:yellow, '', 'italic')
+call s:SetHighlight('jsxTag', s:cyan, '', '')
+call s:SetHighlight('jsxTagName', s:pink, '', '')
+call s:SetHighlight('jsxComponentName', s:yellow, '', '')
+call s:SetHighlight('jsxCloseTag', s:cyan, '', '')
+call s:SetHighlight('jsxEscapeJs', s:fg, '', '')
+call s:SetHighlight('jsxCloseString', s:cyan, '', '')
+call s:SetHighlight('jsxAttrib', s:purple, '', 'italic')
+call s:SetHighlight('jsxString', s:green, '', '')
+call s:SetHighlight('jsxEqual', s:purple, '', '')
+call s:SetHighlight('jsxDot', s:cyan, '', '')
+call s:SetHighlight('jsxSpreadOperator', s:purple, '', '')
+call s:SetHighlight('jsxBraces', s:cyan, '', '')
+call s:SetHighlight('jsxNamespace', s:cyan, '', '')
 
 " JSON
 call s:SetHighlight('jsonBraces', s:fg, '', '')
@@ -302,18 +314,18 @@ call s:SetHighlight('lessFunction', s:blue, '', '')
 call s:SetHighlight('lessVariable', s:purple, '', '')
 
 " HTML
-call s:SetHighlight('htmlEndTag', s:blue, '', '')
-call s:SetHighlight('htmlLink', s:red, '', '')
-call s:SetHighlight('htmlTag', s:blue, '', '')
+call s:SetHighlight('htmlEndTag', s:cyan, '', '')
+call s:SetHighlight('htmlLink', s:green, '', '')
+call s:SetHighlight('htmlTag', s:cyan, '', '')
 call s:SetHighlight('htmlTitle', s:fg, '', '')
-call s:SetHighlight('htmlSpecialTagName', s:purple, '', '')
-call s:SetHighlight('htmlArg', s:yellow, '', 'italic')
+call s:SetHighlight('htmlSpecialTagName', s:yellow, '', '')
+call s:SetHighlight('htmlArg', s:purple, '', 'italic')
 
 " XML
-call s:SetHighlight('xmlAttrib', s:yellow, '', 'italic')
-call s:SetHighlight('xmlEndTag', s:blue, '', '')
-call s:SetHighlight('xmlTag', s:blue, '', '')
-call s:SetHighlight('xmlTagName', s:blue, '', '')
+call s:SetHighlight('xmlAttrib', s:purple, '', 'italic')
+call s:SetHighlight('xmlEndTag', s:cyan, '', '')
+call s:SetHighlight('xmlTag', s:cyan, '', '')
+call s:SetHighlight('xmlTagName', s:pink, '', '')
 
 " Golang
 call s:SetHighlight('goFunctionCall', s:blue, '', '')

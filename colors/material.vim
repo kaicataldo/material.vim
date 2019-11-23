@@ -267,6 +267,9 @@ call s:SetHighlight('jsTemplateExpression', s:red, '', '')
 call s:SetHighlight('jsThis', s:red, '', '')
 call s:SetHighlight('jsUndefined', s:orange, '', '')
 
+" MaxMEllon/vim-jsx-pretty
+call s:SetHighlight('jsxAttrib', s:yellow, '', 'italic')
+
 " JSON
 call s:SetHighlight('jsonBraces', s:fg, '', '')
 

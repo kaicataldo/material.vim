@@ -386,6 +386,11 @@ hi link SignifySignDelete GitGutterDelete
 " vim-better-whitespace
 call s:SetHighlight('ExtraWhitespace', '', s:red, '')
 
+" NERDTree
+if has('nvim')
+  call s:SetHighlight('NERDTreeFile', s:fg, '', '')
+endif
+
 " Neovim terminal colors
 if has('nvim')
   let g:terminal_color_background = s:bg

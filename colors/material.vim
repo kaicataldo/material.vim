@@ -414,5 +414,83 @@ if has('nvim')
   let g:terminal_color_13 = g:terminal_color_5
   let g:terminal_color_14 = g:terminal_color_6
   let g:terminal_color_15 = g:terminal_color_7
+elseif has('terminal')
+    if g:material_theme_style == 'palenight'
+        let g:terminal_ansi_colors = [
+                    \ "#292D3E",
+                    \ "#F07178",
+                    \ "#C3E88D",
+                    \ "#FFCB6B",
+                    \ "#82AAFF",
+                    \ "#C792EA",
+                    \ "#89DDFF",
+                    \ "#959DCB",
+                    \ "#676E95",
+                    \ "#F07178",
+                    \ "#C3E88D",
+                    \ "#FFCB6B",
+                    \ "#82AAFF",
+                    \ "#C792EA",
+                    \ "#89DDFF",
+                    \ "#FFFFFF",
+                    \ ]
+    elseif g:material_theme_style == 'darker'
+        let g:terminal_ansi_colors = [
+                    \ "#212121",
+                    \ "#F07178",
+                    \ "#C3E88D",
+                    \ "#FFCB6B",
+                    \ "#82AAFF",
+                    \ "#C792EA",
+                    \ "#89DDFF",
+                    \ "#EEFFFF",
+                    \ "#4A4A4A",
+                    \ "#F07178",
+                    \ "#C3E88D",
+                    \ "#FFCB6B",
+                    \ "#82AAFF",
+                    \ "#C792EA",
+                    \ "#89DDFF",
+                    \ "#FFFFFF",
+                    \ ]
+    elseif g:material_theme_style == 'lighter'
+        let g:terminal_ansi_colors = [
+                    \ "#FAFAFA",
+                    \ "#FF5370",
+                    \ "#91B859",
+                    \ "#FFB62C",
+                    \ "#6182B8",
+                    \ "#7C4DFF",
+                    \ "#39ADB5",
+                    \ "#80CBC4",
+                    \ "#CCD7DA",
+                    \ "#FF5370",
+                    \ "#91B859",
+                    \ "#FFB62C",
+                    \ "#6182B8",
+                    \ "#7C4DFF",
+                    \ "#39ADB5",
+                    \ "#FFFFFF",
+                    \ ]
+    else
+        let g:terminal_ansi_colors = [
+                    \ "#263238",
+                    \ "#F07178",
+                    \ "#C3E88D",
+                    \ "#FFCB6B",
+                    \ "#82AAFF",
+                    \ "#C792EA",
+                    \ "#89DDFF",
+                    \ "#EEFFFF",
+                    \ "#546E7A",
+                    \ "#F07178",
+                    \ "#C3E88D",
+                    \ "#FFCB6B",
+                    \ "#82AAFF",
+                    \ "#C792EA",
+                    \ "#89DDFF",
+                    \ "#FFFFFF",
+                    \ ]
+    endif
 endif
 

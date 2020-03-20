@@ -396,16 +396,16 @@ endif
 
 " Neovim terminal colors
 if has('nvim')
-  let g:terminal_color_background = s:bg
-  let g:terminal_color_foreground = s:fg
-  let g:terminal_color_0 = s:black
-  let g:terminal_color_1 = s:red
-  let g:terminal_color_2 = s:green
-  let g:terminal_color_3 = s:yellow
-  let g:terminal_color_4 = s:blue
-  let g:terminal_color_5 = s:purple
-  let g:terminal_color_6 = s:cyan
-  let g:terminal_color_7 = s:white
+  let g:terminal_color_background = s:bg.gui
+  let g:terminal_color_foreground = s:fg.gui
+  let g:terminal_color_0 = s:black.gui
+  let g:terminal_color_1 = s:red.gui
+  let g:terminal_color_2 = s:green.gui
+  let g:terminal_color_3 = s:yellow.gui
+  let g:terminal_color_4 = s:blue.gui
+  let g:terminal_color_5 = s:purple.gui
+  let g:terminal_color_6 = s:cyan.gui
+  let g:terminal_color_7 = s:white.gui
   let g:terminal_color_8 = g:terminal_color_0
   let g:terminal_color_9 = g:terminal_color_1
   let g:terminal_color_10 = g:terminal_color_2

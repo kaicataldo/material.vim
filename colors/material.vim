@@ -35,11 +35,11 @@ function! s:SetHighlight(group, fg, bg, attr)
   endif
 
   if !empty(a:fg)
-    exec 'hi ' . a:group . ' guifg=' . a:fg
+    exec 'hi ' . a:group . ' guifg=' . a:fg.gui . ' ctermfg=' . a:fg.cterm
   endif
 
   if !empty(a:bg)
-    exec 'hi ' . a:group . ' guibg=' . a:bg
+    exec 'hi ' . a:group . ' guibg=' . a:bg.gui . ' ctermbg=' . a:bg.cterm
   endif
 
   if !empty(l:attr)

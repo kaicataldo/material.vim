@@ -74,6 +74,14 @@ The theme will change to match the theme option specified.
 
 Note: The included theme is called `material_vim` because lightline.vim comes with its own version of a material theme (which does not change based on the theme version selected).
 
+### airline.vim
+
+To use the included [vim-airline](https://github.com/vim-airline/vim-airline) theme:
+
+```vim
+let g:airline_theme = 'material'
+```
+
 ### Terminal Color Scheme
 
 Corresponding terminal color schemes are included in this repo. You can find them [here](https://github.com/kaicataldo/material.vim/tree/master/terminal-colors/).

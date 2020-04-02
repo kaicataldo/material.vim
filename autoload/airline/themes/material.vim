@@ -35,7 +35,7 @@ function! airline#themes#material#refresh()
     let g:airline#themes#material#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
       \ [g:material_colorscheme_map.fg, g:material_colorscheme_map.line_highlight, '', '', ''],
       \ [g:material_colorscheme_map.cyan, g:material_colorscheme_map.bg, '', '', ''],
-      \ [g:material_colorscheme_map.bg, g:material_colorscheme_map.cyan, '', '', 'bold']
+      \ [g:material_colorscheme_map.bg, g:material_colorscheme_map.cyan, '', '', 'bold'])
   endif
 endfun
 

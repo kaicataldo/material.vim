@@ -1,6 +1,10 @@
 let g:airline#themes#material#palette = {}
 
 function! airline#themes#material#refresh()
+  if ! exists('g:material_colorscheme_map')
+    return
+  endif
+
   let g:airline#themes#material#palette.accents = {
     \ 'red': [g:material_colorscheme_map.red, g:material_colorscheme_map.bg, '', ''],
     \ }

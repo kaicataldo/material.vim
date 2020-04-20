@@ -86,6 +86,9 @@ let g:airline_theme = 'material'
 
 Corresponding terminal color schemes are included in this repo. You can find them [here](https://github.com/kaicataldo/material.vim/tree/master/terminal-colors/).
 
+#### Vim on macOS
+
+The default version of `vim` on `macOS` doesn't support `termguicolors`. In order for it to work properly you need to apply the terminal colors from above.
 
 ## Thanks
 

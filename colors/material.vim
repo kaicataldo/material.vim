@@ -51,7 +51,7 @@ endfun
 
 " Default colors
 set background=dark
-let s:bg = { 'gui': '#263238', 'cterm': 0 }
+let s:bg = { 'gui': '#263238', 'cterm': 'none' }
 let s:fg = { 'gui': '#eeffff', 'cterm': 231 }
 let s:invisibles = { 'gui': '#65738e', 'cterm': 66 }
 let s:comments = { 'gui': '#546e7a', 'cterm': 60 }
@@ -65,7 +65,7 @@ let s:black = { 'gui': '#000000', 'cterm': 232 }
 let s:red = { 'gui': '#ff5370', 'cterm': 203 }
 let s:orange = { 'gui': '#f78c6c', 'cterm': 209 }
 let s:yellow = { 'gui': '#ffcb6b', 'cterm': 11 }
-let s:green = { 'gui': '#c3e88d', 'cterm': 186 }
+let s:green = { 'gui': '#c3e88d', 'cterm': 2 } " 186 –– almost perfect match
 let s:cyan = { 'gui': '#89ddff', 'cterm': 117 }
 let s:blue = { 'gui': '#82aaff', 'cterm': 111 }
 let s:paleblue = { 'gui': '#b2ccd6', 'cterm': 152 }
@@ -76,16 +76,16 @@ let s:violet = { 'gui': '#bb80b3', 'cterm': 139 }
 
 " Theme-specific color overrides
 if g:material_theme_style == 'palenight'
-  let s:bg = { 'gui': '#292d3e', 'cterm': 0 }
+  let s:bg = { 'gui': '#292d3e', 'cterm': 'none' }
   let s:fg = { 'gui': '#a6accd', 'cterm': 146 }
   let s:invisibles = { 'gui': '#4e5579', 'cterm': 60 }
-  let s:comments = { 'gui': '#676e95', 'cterm': 18 }
-  let s:selection = { 'gui': '#343b51', 'cterm': 17 }
+  let s:comments = { 'gui': '#676e95', 'cterm': 60 }
+  let s:selection = { 'gui': '#343b51', 'cterm': 60 }
   let s:guides = { 'gui': '#4e5579', 'cterm': 60 }
-  let s:line_numbers = { 'gui': '#3a3f58', 'cterm': 236 }
+  let s:line_numbers = { 'gui': '#3a3f58', 'cterm': 60 }
   let s:line_highlight = { 'gui': '#1c1f2b', 'cterm': 234 }
 elseif g:material_theme_style == 'darker'
-  let s:bg = { 'gui': '#212121', 'cterm': 0 }
+  let s:bg = { 'gui': '#212121', 'cterm': 'none' }
   let s:fg = { 'gui': '#eeffff', 'cterm': 231 }
   let s:invisibles = { 'gui': '#65737e', 'cterm': 66 }
   let s:comments = { 'gui': '#545454', 'cterm': 59 }
@@ -94,17 +94,17 @@ elseif g:material_theme_style == 'darker'
   let s:line_numbers = { 'gui': '#424242', 'cterm': 0 }
   let s:line_highlight = { 'gui': '#171717', 'cterm': 0 }
 elseif g:material_theme_style == 'ocean'
-  let s:bg = { 'gui': '#0f111a', 'cterm': 0 }
+  let s:bg = { 'gui': '#0f111a', 'cterm': 'none' }
   let s:fg = { 'gui': '#8f93a2', 'cterm': 103 }
   let s:invisibles = { 'gui': '#80869e', 'cterm': 103 }
-  let s:comments = { 'gui': '#464b5d', 'cterm': 23 }
-  let s:selection = { 'gui': '#1f2233', 'cterm': 0 }
+  let s:comments = { 'gui': '#464b5d', 'cterm': 60 }
+  let s:selection = { 'gui': '#1f2233', 'cterm': 60 }
   let s:guides = { 'gui': '#3b3f51', 'cterm': 17 }
-  let s:line_numbers = { 'gui': '#3b3f51', 'cterm': 17 }
+  let s:line_numbers = { 'gui': '#3b3f51', 'cterm': 60 }
   let s:line_highlight = { 'gui': '#0a0c12', 'cterm': 0 }
 elseif g:material_theme_style == 'lighter'
   set background=light
-  let s:bg = { 'gui': '#fafafa', 'cterm': 231 }
+  let s:bg = { 'gui': '#fafafa', 'cterm': 'none' }
   let s:fg = { 'gui': '#90a4ae', 'cterm': 109 }
   let s:invisibles = { 'gui': '#e7eaec', 'cterm': 189 }
   let s:comments = { 'gui': '#90a4ae', 'cterm': 109 }

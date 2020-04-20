@@ -5,7 +5,9 @@ function! airline#themes#material#refresh()
     \ 'red': [g:material_colorscheme_map.red.gui,
       \ g:material_colorscheme_map.bg.gui,
       \ g:material_colorscheme_map.red.cterm,
-      \ g:material_colorscheme_map.bg.cterm],
+      \ g:material_theme_style == 'lighter' ?
+        \ g:material_colorscheme_map.white.cterm :
+        \ g:material_colorscheme_map.black.cterm],
     \ }
 
   let s:N1 = [g:material_colorscheme_map.line_highlight.gui,
@@ -25,7 +27,9 @@ function! airline#themes#material#refresh()
   let group = [g:material_colorscheme_map.yellow.gui,
     \ g:material_colorscheme_map.bg.gui,
     \ g:material_colorscheme_map.yellow.cterm,
-    \ g:material_colorscheme_map.bg.cterm, '']
+    \ g:material_theme_style == 'lighter' ?
+        \ g:material_colorscheme_map.white.cterm :
+        \ g:material_colorscheme_map.black.cterm, '']
   let g:airline#themes#material#palette.normal_modified = {
     \ 'airline_c': [ group[0], '', group[2], '', '' ]
     \ }
@@ -38,9 +42,9 @@ function! airline#themes#material#refresh()
   let g:airline#themes#material#palette.insert_modified = g:airline#themes#material#palette.normal_modified
 
   let s:R1 = [g:material_colorscheme_map.line_highlight.gui,
-    \ g:material_colorscheme_map.bg.gui,
+    \ g:material_colorscheme_map.green.gui,
     \ g:material_colorscheme_map.line_highlight.cterm,
-    \ g:material_colorscheme_map.bg.cterm, 'bold']
+    \ g:material_colorscheme_map.green.cterm, 'bold']
   let g:airline#themes#material#palette.replace = airline#themes#generate_color_map(s:R1, s:N2, s:N3)
   let g:airline#themes#material#palette.replace_modified = g:airline#themes#material#palette.normal_modified
 
@@ -68,11 +72,15 @@ function! airline#themes#material#refresh()
       \ [g:material_colorscheme_map.cyan.gui,
         \ g:material_colorscheme_map.bg.gui,
         \ g:material_colorscheme_map.cyan.cterm,
-        \ g:material_colorscheme_map.bg.cterm,
+        \ g:material_theme_style == 'lighter' ?
+          \ g:material_colorscheme_map.white.cterm :
+          \ g:material_colorscheme_map.black.cterm,
         \ ''],
       \ [g:material_colorscheme_map.bg.gui,
         \ g:material_colorscheme_map.cyan.gui,
-        \ g:material_colorscheme_map.bg.cterm,
+        \ g:material_theme_style == 'lighter' ?
+          \ g:material_colorscheme_map.white.cterm :
+          \ g:material_colorscheme_map.black.cterm,
         \ g:material_colorscheme_map.cyan.cterm, 'bold'])
   endif
 endfun

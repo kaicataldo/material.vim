@@ -12,7 +12,9 @@ function! airline#themes#material#refresh()
 
   let s:N1 = [g:material_colorscheme_map.line_highlight.gui,
     \ g:material_colorscheme_map.cyan.gui,
-    \ g:material_colorscheme_map.line_highlight.cterm,
+    \ g:material_theme_style == 'lighter' ?
+        \ g:material_colorscheme_map.white.cterm :
+        \ g:material_colorscheme_map.black.cterm,
     \ g:material_colorscheme_map.cyan.cterm, 'bold']
   let s:N2 = [g:material_colorscheme_map.fg.gui,
     \ g:material_colorscheme_map.selection.gui,
@@ -21,7 +23,7 @@ function! airline#themes#material#refresh()
   let s:N3 = [g:material_colorscheme_map.fg.gui,
     \ g:material_colorscheme_map.line_numbers.gui,
     \ g:material_colorscheme_map.fg.cterm,
-    \ g:material_colorscheme_map.line_numbers.cterm, '']
+    \ g:material_colorscheme_map.selection.cterm, '']
   let g:airline#themes#material#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
 
   let group = [g:material_colorscheme_map.yellow.gui,

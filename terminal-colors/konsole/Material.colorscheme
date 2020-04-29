@@ -1,4 +1,4 @@
-# --- special colors ---
+# --- Material Default ---
 
 [Background]
 Color=38,50,56
@@ -13,49 +13,47 @@ Color=238,255,255
 Color=238,255,255
 Bold=true
 
-# --- standard colors ---
-
 [Color0]
-Color=0,0,0
+Color=48,60,65
 
 [Color0Intense]
-Color=84,110,122
+Color=74,84,89
 
 [Color1]
-Color=255,83,112
+Color=240,113,120
 
 [Color1Intense]
-Color=255,83,112
+Color=255,139,146
 
 [Color2]
 Color=195,232,141
 
 [Color2Intense]
-Color=195,232,141
+Color=221,255,167
 
 [Color3]
 Color=255,203,107
 
 [Color3Intense]
-Color=255,203,107
+Color=255,229,133
 
 [Color4]
 Color=130,170,255
 
 [Color4Intense]
-Color=130,170,255
+Color=156,196,255
 
 [Color5]
 Color=199,146,234
 
 [Color5Intense]
-Color=199,146,234
+Color=225,172,255
 
 [Color6]
 Color=137,221,255
 
 [Color6Intense]
-Color=137,221,255
+Color=163,247,255
 
 [Color7]
 Color=238,255,255
@@ -63,10 +61,9 @@ Color=238,255,255
 [Color7Intense]
 Color=255,255,255
 
-
 [General]
 Blur=true
 ColorRandomization=false
 Description=Material
-Opacity=
+Opacity=1
 Wallpaper=

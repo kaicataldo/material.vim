@@ -414,26 +414,5 @@ if has('nvim')
   let g:terminal_color_13 = g:terminal_color_5
   let g:terminal_color_14 = g:terminal_color_6
   let g:terminal_color_15 = g:terminal_color_7
-elseif has('terminal')
-  let g:terminal_ansi_colors = [
-    \ s:bg.gui,
-    \ s:fg.gui,
-    \ s:black.gui,
-    \ s:red.gui,
-    \ s:green.gui,
-    \ s:yellow.gui,
-    \ s:blue.gui,
-    \ s:purple.gui,
-    \ s:cyan.gui,
-    \ s:white.gui,
-    \ s:black.gui,
-    \ s:red.gui,
-    \ s:green.gui,
-    \ s:yellow.gui,
-    \ s:blue.gui,
-    \ s:purple.gui,
-    \ s:cyan.gui,
-    \ s:white.gui,
-    \ ]
 endif
 

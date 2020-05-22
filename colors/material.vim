@@ -162,10 +162,10 @@ call s:SetHighlight('CursorColumn', '', s:line_highlight, '')
 call s:SetHighlight('CursorLine', '', s:line_highlight, '')
 call s:SetHighlight('CursorLineNr', s:comments, '', '')
 call s:SetHighlight('Directory', s:blue, '', '')
-call s:SetHighlight('DiffAdd', s:bg, s:green, '')
-call s:SetHighlight('DiffDelete', s:bg, s:red, '')
-call s:SetHighlight('DiffChange', s:bg, s:yellow, '')
-call s:SetHighlight('DiffText', s:bg, s:orange, '')
+call s:SetHighlight('DiffAdd', s:green, s:bg, '')
+call s:SetHighlight('DiffDelete', s:red, s:bg, '')
+call s:SetHighlight('DiffChange', s:yellow, s:bg, '')
+call s:SetHighlight('DiffText', s:orange, s:bg, '')
 call s:SetHighlight('ErrorMsg', s:bg, s:red, 'bold')
 call s:SetHighlight('FoldColumn', s:line_numbers, s:bg, '')
 call s:SetHighlight('Folded', s:brown, s:bg, 'bold')
@@ -219,6 +219,13 @@ call s:SetHighlight('Special', s:violet, '', '')
 call s:SetHighlight('Underlined', s:blue, '', '')
 call s:SetHighlight('Error', s:bg, s:red, '')
 call s:SetHighlight('Todo', s:orange, s:bg, 'italic')
+
+" diff misnames
+hi! link diffFile    DiffAdd
+hi! link diffNewFile DiffDelete
+hi! link diffAdded   DiffAdd
+hi! link diffLine    DiffChange
+hi! link diffRemoved DiffDelete
 
 " Git Commit Messages
 call s:SetHighlight('gitcommitHeader', s:purple, '', '')

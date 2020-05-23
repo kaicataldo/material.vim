@@ -220,7 +220,7 @@ call s:SetHighlight('Underlined', s:blue, '', '')
 call s:SetHighlight('Error', s:bg, s:red, '')
 call s:SetHighlight('Todo', s:orange, s:bg, 'italic')
 
-" diff misnames
+" Legacy groups for official git.vim and diff.vim syntax
 hi! link diffFile    DiffAdd
 hi! link diffNewFile DiffDelete
 hi! link diffAdded   DiffAdd

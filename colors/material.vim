@@ -224,6 +224,7 @@ call s:SetHighlight('Todo', s:orange, s:bg, 'italic')
 hi! link diffFile    DiffAdd
 hi! link diffNewFile DiffDelete
 hi! link diffAdded   DiffAdd
+hi! link diffChanged DiffChange
 hi! link diffLine    DiffChange
 hi! link diffRemoved DiffDelete
 

@@ -325,12 +325,19 @@ call s:SetHighlight('lessFunction', s:blue, '', '')
 call s:SetHighlight('lessVariable', s:purple, '', '')
 
 " HTML
+call s:SetHighlight('htmlTagName', s:pink, '', '')
 call s:SetHighlight('htmlEndTag', s:cyan, '', '')
-call s:SetHighlight('htmlLink', s:green, '', '')
 call s:SetHighlight('htmlTag', s:cyan, '', '')
-call s:SetHighlight('htmlTitle', s:fg, '', '')
 call s:SetHighlight('htmlSpecialTagName', s:yellow, '', '')
 call s:SetHighlight('htmlArg', s:purple, '', 'italic')
+call s:SetHighlight('htmlTitle', s:fg, '', '')
+call s:SetHighlight('htmlLink', s:fg, '', '')
+call s:SetHighlight('htmlH1', s:fg, '', '')
+call s:SetHighlight('htmlH2', s:fg, '', '')
+call s:SetHighlight('htmlH3', s:fg, '', '')
+call s:SetHighlight('htmlH4', s:fg, '', '')
+call s:SetHighlight('htmlH5', s:fg, '', '')
+call s:SetHighlight('htmlH6', s:fg, '', '')
 
 " XML
 call s:SetHighlight('xmlAttrib', s:purple, '', 'italic')

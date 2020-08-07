@@ -75,7 +75,7 @@ let s:pink = { 'gui': '#f07178', 'cterm': 204 }
 let s:violet = { 'gui': '#bb80b3', 'cterm': 139 }
 
 " Theme-specific color overrides
-if g:material_theme_style == 'palenight'
+if g:material_theme_style == 'palenight' || g:material_theme_style == 'palenight-community'
   let s:bg = { 'gui': '#292d3e', 'cterm': 'none' }
   let s:fg = { 'gui': '#a6accd', 'cterm': 146 }
   let s:invisibles = { 'gui': '#4e5579', 'cterm': 60 }
@@ -84,7 +84,7 @@ if g:material_theme_style == 'palenight'
   let s:guides = { 'gui': '#4e5579', 'cterm': 60 }
   let s:line_numbers = { 'gui': '#3a3f58', 'cterm': 60 }
   let s:line_highlight = { 'gui': '#1c1f2b', 'cterm': 234 }
-elseif g:material_theme_style == 'darker'
+elseif g:material_theme_style == 'darker' || g:material_theme_style == 'darker-community'
   let s:bg = { 'gui': '#212121', 'cterm': 'none' }
   let s:fg = { 'gui': '#eeffff', 'cterm': 231 }
   let s:invisibles = { 'gui': '#65737e', 'cterm': 66 }
@@ -93,7 +93,7 @@ elseif g:material_theme_style == 'darker'
   let s:guides = { 'gui': '#424242', 'cterm': 0 }
   let s:line_numbers = { 'gui': '#424242', 'cterm': 0 }
   let s:line_highlight = { 'gui': '#171717', 'cterm': 0 }
-elseif g:material_theme_style == 'ocean'
+elseif g:material_theme_style == 'ocean' || g:material_theme_style == 'ocean-community'
   let s:bg = { 'gui': '#0f111a', 'cterm': 'none' }
   let s:fg = { 'gui': '#8f93a2', 'cterm': 103 }
   let s:invisibles = { 'gui': '#80869e', 'cterm': 103 }
@@ -102,7 +102,7 @@ elseif g:material_theme_style == 'ocean'
   let s:guides = { 'gui': '#3b3f51', 'cterm': 17 }
   let s:line_numbers = { 'gui': '#3b3f51', 'cterm': 60 }
   let s:line_highlight = { 'gui': '#0a0c12', 'cterm': 0 }
-elseif g:material_theme_style == 'lighter'
+elseif g:material_theme_style == 'lighter' || g:material_theme_style == 'lighter-community'
   set background=light
   let s:bg = { 'gui': '#fafafa', 'cterm': 'none' }
   let s:fg = { 'gui': '#90a4ae', 'cterm': 109 }
@@ -254,59 +254,85 @@ call s:SetHighlight('javaScriptRequire', s:cyan, '', '')
 call s:SetHighlight('javaScriptReserved', s:purple, '', '')
 
 " pangloss/vim-javascript
-call s:SetHighlight('jsArrowFunction', s:purple, '', '')
-call s:SetHighlight('jsAsyncKeyword', s:purple, '', '')
-call s:SetHighlight('jsBooleanTrue', s:orange, '', '')
-call s:SetHighlight('jsBooleanFalse', s:orange, '', '')
-call s:SetHighlight('jsBrackets', s:pink, '', '')
-call s:SetHighlight('jsCatch', s:cyan, '', 'italic')
-call s:SetHighlight('jsClassBraces', s:cyan, '', '')
-call s:SetHighlight('jsClassDefinition', s:yellow, '', '')
-call s:SetHighlight('jsClassFuncName', s:pink, '', '')
-call s:SetHighlight('jsClassProperty', s:pink, '', '')
-call s:SetHighlight('jsClassKeyword', s:purple, '', '')
-call s:SetHighlight('jsConditional', s:cyan, '', 'italic')
-call s:SetHighlight('jsDocParam', s:green, '', '')
-call s:SetHighlight('jsDocTags', s:cyan, '', '')
-call s:SetHighlight('jsDot', s:cyan, '', '')
-call s:SetHighlight('jsException', s:cyan, '', 'italic')
-call s:SetHighlight('jsExceptions', s:yellow, '', '')
-call s:SetHighlight('jsExport', s:cyan, '', 'italic')
-call s:SetHighlight('jsExportDefault', s:cyan, '', 'italic')
-call s:SetHighlight('jsExtendsKeyword', s:purple, '', '')
-call s:SetHighlight('jsFinally', s:cyan, '', 'italic')
-call s:SetHighlight('jsFinallyBraces', s:cyan, '', '')
-call s:SetHighlight('jsFlowArgumentDef', s:yellow, '', '')
-call s:SetHighlight('jsForAwait', s:cyan, '', 'italic')
-call s:SetHighlight('jsFrom', s:cyan, '', 'italic')
-call s:SetHighlight('jsFuncBraces', s:cyan, '', '')
-call s:SetHighlight('jsFuncCall', s:blue, '', '')
-call s:SetHighlight('jsFuncParens', s:cyan, '', '')
-call s:SetHighlight('jsFunction', s:purple, '', '')
-call s:SetHighlight('jsFunctionKey', s:pink, '', '')
-call s:SetHighlight('jsGlobalObjects', s:yellow, '', '')
-call s:SetHighlight('jsGlobalNodeObjects', s:yellow, '', '')
-call s:SetHighlight('jsIfElseBraces', s:cyan, '', '')
-call s:SetHighlight('jsImport', s:cyan, '', 'italic')
-call s:SetHighlight('jsModuleAs', s:cyan, '', 'italic')
-call s:SetHighlight('jsModuleBraces', s:cyan, '', '')
-call s:SetHighlight('jsNull', s:cyan, '', '')
-call s:SetHighlight('jsNoise', s:cyan, '', '')
-call s:SetHighlight('jsObjectBraces', s:cyan, '', '')
-call s:SetHighlight('jsObjectColon', s:cyan, '', '')
-call s:SetHighlight('jsObjectKey', s:pink, '', '')
-call s:SetHighlight('jsObjectSeparator', s:cyan, '', '')
-call s:SetHighlight('jsParens', s:pink, '', '')
-call s:SetHighlight('jsRepeat', s:cyan, '', 'italic')
-call s:SetHighlight('jsReturn', s:cyan, '', 'italic')
-call s:SetHighlight('jsStorageClass', s:purple, '', '')
-call s:SetHighlight('jsTemplateBraces', s:cyan, '', '')
-call s:SetHighlight('jsTemplateExpression', s:fg, '', '')
-call s:SetHighlight('jsTemplateString', s:green, '', '')
-call s:SetHighlight('jsThis', s:cyan, '', 'italic')
-call s:SetHighlight('jsTry', s:cyan, '', 'italic')
-call s:SetHighlight('jsTryCatchBraces', s:cyan, '', '')
-call s:SetHighlight('jsUndefined', s:cyan, '', '')
+if g:material_theme_style !~ '-community$'
+  call s:SetHighlight('jsArrowFunction', s:purple, '', '')
+  call s:SetHighlight('jsAsyncKeyword', s:purple, '', '')
+  call s:SetHighlight('jsBooleanTrue', s:orange, '', '')
+  call s:SetHighlight('jsBooleanFalse', s:orange, '', '')
+  call s:SetHighlight('jsBrackets', s:pink, '', '')
+  call s:SetHighlight('jsCatch', s:cyan, '', 'italic')
+  call s:SetHighlight('jsClassBraces', s:cyan, '', '')
+  call s:SetHighlight('jsClassDefinition', s:yellow, '', '')
+  call s:SetHighlight('jsClassFuncName', s:pink, '', '')
+  call s:SetHighlight('jsClassProperty', s:pink, '', '')
+  call s:SetHighlight('jsClassKeyword', s:purple, '', '')
+  call s:SetHighlight('jsConditional', s:cyan, '', 'italic')
+  call s:SetHighlight('jsDocParam', s:green, '', '')
+  call s:SetHighlight('jsDocTags', s:cyan, '', '')
+  call s:SetHighlight('jsDot', s:cyan, '', '')
+  call s:SetHighlight('jsException', s:cyan, '', 'italic')
+  call s:SetHighlight('jsExceptions', s:yellow, '', '')
+  call s:SetHighlight('jsExport', s:cyan, '', 'italic')
+  call s:SetHighlight('jsExportDefault', s:cyan, '', 'italic')
+  call s:SetHighlight('jsExtendsKeyword', s:purple, '', '')
+  call s:SetHighlight('jsFinally', s:cyan, '', 'italic')
+  call s:SetHighlight('jsFinallyBraces', s:cyan, '', '')
+  call s:SetHighlight('jsFlowArgumentDef', s:yellow, '', '')
+  call s:SetHighlight('jsForAwait', s:cyan, '', 'italic')
+  call s:SetHighlight('jsFrom', s:cyan, '', 'italic')
+  call s:SetHighlight('jsFuncBraces', s:cyan, '', '')
+  call s:SetHighlight('jsFuncCall', s:blue, '', '')
+  call s:SetHighlight('jsFuncParens', s:cyan, '', '')
+  call s:SetHighlight('jsFunction', s:purple, '', '')
+  call s:SetHighlight('jsFunctionKey', s:pink, '', '')
+  call s:SetHighlight('jsGlobalObjects', s:yellow, '', '')
+  call s:SetHighlight('jsGlobalNodeObjects', s:yellow, '', '')
+  call s:SetHighlight('jsIfElseBraces', s:cyan, '', '')
+  call s:SetHighlight('jsImport', s:cyan, '', 'italic')
+  call s:SetHighlight('jsModuleAs', s:cyan, '', 'italic')
+  call s:SetHighlight('jsModuleBraces', s:cyan, '', '')
+  call s:SetHighlight('jsNull', s:cyan, '', '')
+  call s:SetHighlight('jsNoise', s:cyan, '', '')
+  call s:SetHighlight('jsObjectBraces', s:cyan, '', '')
+  call s:SetHighlight('jsObjectColon', s:cyan, '', '')
+  call s:SetHighlight('jsObjectKey', s:pink, '', '')
+  call s:SetHighlight('jsObjectSeparator', s:cyan, '', '')
+  call s:SetHighlight('jsParens', s:pink, '', '')
+  call s:SetHighlight('jsRepeat', s:cyan, '', 'italic')
+  call s:SetHighlight('jsReturn', s:cyan, '', 'italic')
+  call s:SetHighlight('jsStorageClass', s:purple, '', '')
+  call s:SetHighlight('jsTemplateBraces', s:cyan, '', '')
+  call s:SetHighlight('jsTemplateExpression', s:fg, '', '')
+  call s:SetHighlight('jsTemplateString', s:green, '', '')
+  call s:SetHighlight('jsThis', s:cyan, '', 'italic')
+  call s:SetHighlight('jsTry', s:cyan, '', 'italic')
+  call s:SetHighlight('jsTryCatchBraces', s:cyan, '', '')
+  call s:SetHighlight('jsUndefined', s:cyan, '', '')
+else
+  call s:SetHighlight('jsArrowFunction', s:purple, '', '')
+  call s:SetHighlight('jsAsyncKeyword', s:purple, '', '')
+  call s:SetHighlight('jsExtendsKeyword', s:purple, '', '')
+  call s:SetHighlight('jsClassKeyword', s:purple, '', '')
+  call s:SetHighlight('jsDocParam', s:green, '', '')
+  call s:SetHighlight('jsDocTags', s:cyan, '', '')
+  call s:SetHighlight('jsForAwait', s:purple, '', '')
+  call s:SetHighlight('jsFlowArgumentDef', s:yellow, '', '')
+  call s:SetHighlight('jsFrom', s:purple, '', '')
+  call s:SetHighlight('jsImport', s:purple, '', '')
+  call s:SetHighlight('jsExport', s:purple, '', '')
+  call s:SetHighlight('jsExportDefault', s:purple, '', '')
+  call s:SetHighlight('jsFuncCall', s:blue, '', '')
+  call s:SetHighlight('jsFunction', s:purple, '', '')
+  call s:SetHighlight('jsGlobalObjects', s:yellow, '', '')
+  call s:SetHighlight('jsGlobalNodeObjects', s:yellow, '', '')
+  call s:SetHighlight('jsModuleAs', s:purple, '', '')
+  call s:SetHighlight('jsNull', s:orange, '', '')
+  call s:SetHighlight('jsStorageClass', s:purple, '', '')
+  call s:SetHighlight('jsTemplateBraces', s:red, '', '')
+  call s:SetHighlight('jsTemplateExpression', s:red, '', '')
+  call s:SetHighlight('jsThis', s:red, '', '')
+  call s:SetHighlight('jsUndefined', s:orange, '', '')
+endif
 
 " MaxMEllon/vim-jsx-pretty
 call s:SetHighlight('jsxTag', s:cyan, '', '')

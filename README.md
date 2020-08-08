@@ -9,7 +9,7 @@ A port of the [Material](https://material-theme.site) color scheme for Vim/Neovi
 Using [vim-plug](https://github.com/junegunn/vim-plug) (modify this to work with your Vim package manager of choice):
 
 ```vim
-Plug 'kaicataldo/material.vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 ```
 
 ## Usage

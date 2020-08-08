@@ -40,10 +40,14 @@ endif
 
 ### Theme
 
-There are five theme options - `default`, `palenight`, `ocean`, `lighter`, and `darker` (defaulting to `default`). This can be configured as follows:
+There are five color schemes - `default`, `palenight`, `ocean`, `lighter`, and `darker`.
+
+Aditionally, Material's legacy edition ([Community Material](https://github.com/material-theme/vsc-community-material-theme)), is supported for each color scheme - `default-community`, `palenight-community`, `ocean-community`, `lighter-community`, and `darker-community`.
+
+This amounts to a total of ten theme options (defaulting to `default`), that can be configured as follows:
 
 ```vim
-let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
 ```
 
 ### Italics

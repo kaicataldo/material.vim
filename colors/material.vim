@@ -490,7 +490,7 @@ if g:material_theme_style !~ '-community$'
   call s:SetHighlight('VimwikiBoldChar', s:cyan, '', 'bold')
   call s:SetHighlight('VimwikiDelText', s:pink, '', 'strikethrough')
   call s:SetHighlight('VimwikiDelTextChar', s:cyan, '', '')
-  call s:SetHighlight('VimwikiCode', s:green, '', 'italic')
+  call s:SetHighlight('VimwikiCode', s:green, '', '')
   call s:SetHighlight('VimwikiCodeChar', s:cyan, '', '')
   call s:SetHighlight('VimwikiHeader1', s:yellow, '', '')
   call s:SetHighlight('VimwikiHeader2', s:yellow, '', '')

@@ -388,12 +388,15 @@ call s:SetHighlight('htmlSpecialTagName', s:yellow, '', '')
 call s:SetHighlight('htmlArg', s:purple, '', 'italic')
 call s:SetHighlight('htmlTitle', s:fg, '', '')
 call s:SetHighlight('htmlLink', s:fg, '', '')
-call s:SetHighlight('htmlH1', s:fg, '', '')
-call s:SetHighlight('htmlH2', s:fg, '', '')
-call s:SetHighlight('htmlH3', s:fg, '', '')
-call s:SetHighlight('htmlH4', s:fg, '', '')
-call s:SetHighlight('htmlH5', s:fg, '', '')
-call s:SetHighlight('htmlH6', s:fg, '', '')
+"" Consistency with plasticboy/vim-markdown
+call s:SetHighlight('htmlBold', s:pink, '', 'bold')
+call s:SetHighlight('htmlH1', s:yellow, '', '')
+call s:SetHighlight('htmlH2', s:yellow, '', '')
+call s:SetHighlight('htmlH3', s:yellow, '', '')
+call s:SetHighlight('htmlH4', s:yellow, '', '')
+call s:SetHighlight('htmlH5', s:yellow, '', '')
+call s:SetHighlight('htmlH6', s:yellow, '', '')
+call s:SetHighlight('htmlItalic', s:pink, '', 'italic')
 
 " XML
 call s:SetHighlight('xmlAttrib', s:purple, '', 'italic')
@@ -450,7 +453,7 @@ if g:material_theme_style !~ '-community$'
   call s:SetHighlight('markdownLinkText', s:green, '', '')
   call s:SetHighlight('markdownLinkTextDelimiter', s:cyan, '', '')
   call s:SetHighlight('markdownListMarker', s:cyan, '', '')
-  call s:SetHighlight('markdownUrl', s:pink, '', '')
+  call s:SetHighlight('markdownUrl', s:pink, '', 'underline')
   call s:SetHighlight('markdownUrlTitleDelimiter', s:green, '', '')
 else
   call s:SetHighlight('markdownBold', s:yellow, '', 'bold')
@@ -466,6 +469,19 @@ else
   call s:SetHighlight('markdownRule', s:comments, '', '')
   call s:SetHighlight('markdownUrl', s:purple, '', '')
   call s:SetHighlight('markdownUrlTitleDelimiter', s:yellow, '', '')
+endif
+
+" plasticboy/vim-markdown
+if g:material_theme_style !~ '-community$'
+  call s:SetHighlight('mkdBold', s:cyan, '', '')
+  call s:SetHighlight('mkdCodeStart', s:green, '', '')
+  call s:SetHighlight('mkdCodeDelimiter', s:cyan, '', '')
+  call s:SetHighlight('mkdDelimiter', s:cyan, '', '')
+  call s:SetHighlight('mkdHeading', s:cyan, '', '')
+  call s:SetHighlight('mkdItalic', s:cyan, '', '')
+  call s:SetHighlight('mkdLink', s:green, '', '')
+  call s:SetHighlight('mkdListItem', s:cyan, '', '')
+  call s:SetHighlight('mkdURL', s:pink, '', 'underline')
 endif
 
 " vim-gitgutter

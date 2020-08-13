@@ -484,6 +484,30 @@ if g:material_theme_style !~ '-community$'
   call s:SetHighlight('mkdURL', s:pink, '', 'underline')
 endif
 
+" vimwiki/vimwiki
+if g:material_theme_style !~ '-community$'
+  call s:SetHighlight('VimwikiBold', s:pink, '', 'bold')
+  call s:SetHighlight('VimwikiBoldChar', s:cyan, '', 'bold')
+  call s:SetHighlight('VimwikiDelText', s:pink, '', 'strikethrough')
+  call s:SetHighlight('VimwikiDelTextChar', s:cyan, '', '')
+  call s:SetHighlight('VimwikiCode', s:green, '', 'italic')
+  call s:SetHighlight('VimwikiCodeChar', s:cyan, '', '')
+  call s:SetHighlight('VimwikiHeader1', s:yellow, '', '')
+  call s:SetHighlight('VimwikiHeader2', s:yellow, '', '')
+  call s:SetHighlight('VimwikiHeader3', s:yellow, '', '')
+  call s:SetHighlight('VimwikiHeader4', s:yellow, '', '')
+  call s:SetHighlight('VimwikiHeader5', s:yellow, '', '')
+  call s:SetHighlight('VimwikiHeader6', s:yellow, '', '')
+  call s:SetHighlight('VimwikiHeaderChar', s:cyan, '', '')
+  call s:SetHighlight('VimwikiImage', s:cyan, '', '')
+  call s:SetHighlight('VimwikiItalic', s:pink, '', 'italic')
+  call s:SetHighlight('VimwikiItalicChar', s:cyan, '', '')
+  call s:SetHighlight('VimwikiLink', s:green, '', 'underline')
+  call s:SetHighlight('VimwikiListTodo', s:cyan, '', '')
+  call s:SetHighlight('VimwikiPre', s:green, '', '')
+  call s:SetHighlight('VimwikiWebLink1', s:green, '', 'underline')
+endif
+
 " vim-gitgutter
 call s:SetHighlight('GitGutterAdd', s:green, '', '')
 call s:SetHighlight('GitGutterChange', s:yellow, '', '')

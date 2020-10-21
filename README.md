@@ -94,6 +94,20 @@ Corresponding terminal color schemes are included in this repo. You can find the
 
 The default version of `vim` on `macOS` doesn't support `termguicolors`. In order for the colorscheme to work properly you need to apply the terminal colors from above. Or you can install the latest version from `brew`.
 
+## Troubleshooting
+
+## Italics not rendering correctly
+
+Italicized text [sometimes does not rendering correctly in iTerm2](https://github.com/kaicataldo/material.vim/issues/56). Before making an issue, if you use iTerm2, please see if this addition to your .vimrc fixes the issue for you:
+
+```vim
+" Fix italics in Vim
+if !has('nvim')
+  let &t_ZH="\e[3m"
+  let &t_ZR="\e[23m"
+endif
+```
+
 ## Thanks
 
 Thanks to [@equinusocio](https://github.com/equinusocio) for the original Material theme as well as [palenight.vim](https://github.com/drewtempelmeyer/palenight.vim) and [quantum](https://github.com/tyrannicaltoucan/vim-quantum), both of which were of great help when I first started this project.

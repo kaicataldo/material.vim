@@ -96,7 +96,7 @@ The default version of `vim` on `macOS` doesn't support `termguicolors`. In orde
 
 ## Troubleshooting
 
-## Italics not rendering correctly
+### Italics not rendering correctly
 
 Italicized text [sometimes does not rendering correctly in iTerm2](https://github.com/kaicataldo/material.vim/issues/56). Before making an issue, if you use iTerm2, please see if this addition to your .vimrc fixes the issue for you:
 

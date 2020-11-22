@@ -221,11 +221,11 @@ call s:SetHighlight('Error', s:bg, s:red, '')
 call s:SetHighlight('Todo', s:orange, s:bg, 'italic')
 
 " Legacy groups for official git.vim and diff.vim syntax
-hi! link diffFile    DiffAdd
+hi! link diffFile DiffAdd
 hi! link diffNewFile DiffDelete
-hi! link diffAdded   DiffAdd
+hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
-hi! link diffLine    DiffChange
+hi! link diffLine DiffChange
 hi! link diffRemoved DiffDelete
 
 " Git Commit Messages
@@ -526,6 +526,13 @@ call s:SetHighlight('ExtraWhitespace', '', s:red, '')
 if has('nvim')
   call s:SetHighlight('NERDTreeFile', s:fg, '', '')
 endif
+
+" coc.nvim
+call s:SetHighlight('CocMarkdownLink', s:purple, '', '')
+call s:SetHighlight('CocErrorSign', s:red, '', '')
+call s:SetHighlight('CocWarningSign', s:orange, '', '')
+call s:SetHighlight('CocHintSign', s:yellow, '', '')
+call s:SetHighlight('CocInfoSign', s:green, '', '')
 
 " Neovim terminal colors
 if has('nvim')

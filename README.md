@@ -66,6 +66,9 @@ let g:material_theme_style = 'lighter'
 colorscheme material
 ```
 
+### JavaScript
+The [vim-javascript](https://github.com/pangloss/vim-javascript) plugin, which provides fine-grained JS syntax highlighting features, is highly recommended for proper JavaScript highlighting. The theme will still work without the plugin, however JS highlighting will be minimal.
+
 ### lightline.vim
 
 To use the theme, install [lightline.vim](https://github.com/itchyny/lightline.vim) with your Vim package manager of choice and then add the following to your configuration file:

@@ -425,6 +425,10 @@ call s:SetHighlight('rubyRegexp', s:cyan, '', '')
 call s:SetHighlight('rubyRegexpDelimiter', s:violet, '', '')
 call s:SetHighlight('rubyStringDelimiter', s:green, '', '')
 
+" Rust
+call s:SetHighlight('CocRustTypeHint', s:invisibles, '', '')
+call s:SetHighlight('CocRustChainingHint', s:invisibles, '', '')
+
 " TeX
 call s:SetHighlight('texBeginEndName', s:blue, '', '')
 call s:SetHighlight('texMathMatcher', s:blue, '', '')

@@ -542,7 +542,7 @@ call s:SetHighlight('CocInfoSign', s:green, '', '')
 if has('nvim')
   let g:terminal_color_background = s:bg.gui
   let g:terminal_color_foreground = s:fg.gui
-  let g:terminal_color_0 = s:black.gui
+  let g:terminal_color_0 = s:comments.gui
   let g:terminal_color_1 = s:red.gui
   let g:terminal_color_2 = s:green.gui
   let g:terminal_color_3 = s:yellow.gui

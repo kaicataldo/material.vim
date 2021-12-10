@@ -89,6 +89,18 @@ To use the included [vim-airline](https://github.com/vim-airline/vim-airline) th
 let g:airline_theme = 'material'
 ```
 
+### lualine.nvim
+
+To use the included [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) theme:
+```lua
+require('lualine').setup({
+  options = {
+    theme = require('material.lualine'),
+  },
+})
+```
+
+
 ### Terminal Color Scheme
 
 Corresponding terminal color schemes are included in this repo. You can find them [here](https://github.com/kaicataldo/material.vim/tree/master/terminal-colors/).

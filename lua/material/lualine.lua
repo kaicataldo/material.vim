@@ -5,7 +5,7 @@ local notify = vim.notify
 -- If material colors are not found, defaults to lualine material theme
 if not colors then
   local msg = 'material colors not loaded. Defaults to lualine material theme'
-  notify(msg, 'warn', { title = 'material.nvim' })
+  notify(msg, 'warn', { title = 'material.vim' })
   return require('lualine.themes.material')
 end
 

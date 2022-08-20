@@ -91,7 +91,7 @@ elseif g:material_theme_style == 'darker' || g:material_theme_style == 'darker-c
   let s:comments = { 'gui': '#545454', 'cterm': 59 }
   let s:selection = { 'gui': '#2c2c2c', 'cterm': 237 }
   let s:guides = { 'gui': '#424242', 'cterm': 0 }
-  let s:line_numbers = { 'gui': '#424242', 'cterm': 0 }
+  let s:line_numbers = { 'gui': '#424242', 'cterm': 239 }
   let s:line_highlight = { 'gui': '#171717', 'cterm': 0 }
 elseif g:material_theme_style == 'ocean' || g:material_theme_style == 'ocean-community'
   let s:bg = { 'gui': '#0f111a', 'cterm': 'none' }

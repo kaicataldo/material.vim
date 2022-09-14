@@ -31,7 +31,7 @@ return {
     b = { fg = colors.fg.gui, bg = b_bg.gui },
   },
   inactive = {
-    a = { fg = colors.fg.gui, bg = colors.bg, gui = 'bold' },
+    a = { fg = colors.fg.gui, bg = colors.bg.gui, gui = 'bold' },
     b = { fg = colors.fg.gui, bg = b_bg.gui },
     c = { fg = colors.fg.gui, bg = middle.gui },
   },

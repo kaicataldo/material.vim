@@ -1,6 +1,6 @@
 # material.vim
 
-A port of the [Material](https://material-theme.site) color scheme for Vim/Neovim.
+A port of the [Material](https://material-theme-website.vercel.app/) color scheme for Vim/Neovim.
 
 ![](https://raw.githubusercontent.com/kaicataldo/material.vim/main/screenshots/material-all-variants.png)
 

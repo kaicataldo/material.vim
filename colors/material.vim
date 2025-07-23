@@ -222,7 +222,8 @@ call s:SetHighlight('Todo', s:orange, s:bg, 'italic')
 
 " Legacy groups for official git.vim and diff.vim syntax
 hi! link diffFile DiffAdd
-hi! link diffNewFile DiffDelete
+hi! link diffNewFile DiffAdd
+hi! link diffOldFile DiffDelete
 hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffLine DiffChange
